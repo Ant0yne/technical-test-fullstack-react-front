@@ -1,1 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import "variables";
 
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+body {
+	font-size: 1.6rem;
+	line-height: 22px;
+	font-family: "Roboto", sans-serif;
+}
+
+button {
+	font-family: "Roboto", sans-serif;
+	font-size: 1.6rem;
+
+	:hover {
+		cursor: pointer;
+	}
+}
+
+a {
+	color: var(--black);
+	text-decoration: none;
+	font-family: "Roboto", sans-serif;
+	font-size: 1.6rem;
+	color: $black;
+	font-weight: bold;
+}
+
+span {
+	font-weight: bold;
+}
+
+/* ----------------- 520 px ----------------- */
+
+/* @media (min-width: 520px) {
+} */
+
+/* ----------------- 720 px ----------------- */
+
+/* @media (min-width: 720px){
+
+} */
+
+/* ----------------- 768 px ----------------- */
+
+/* @media (min-width: 768px) {
+} */
+
+/* ----------------- 960 px ----------------- */
+
+/* @media (min-width: 960px) {
+} */
+
+/* ----------------- 1024 px ----------------- */
+
+/* @media (min-width: 1024px) {
+	} */
+
+/* ----------------- 1260 px ----------------- */
+
+/* @media (min-width: 1260px) {
+	
+} */

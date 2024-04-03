@@ -1,0 +1,12 @@
+@import "../../variables";
+
+footer {
+	width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	bottom: 0;
+	border-top: 1px solid $palceholder-grey;
+	padding: $sml-pa 0;
+}

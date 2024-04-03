@@ -1,0 +1,24 @@
+@import "../../variables";
+
+%home-f {
+	height: 50vh;
+}
+
+#home {
+	#comic-home {
+		background-image: url("../../assets/comics-sample.avif");
+		@extend %home-f;
+
+		button {
+			width: 100%;
+			height: 100%;
+			background: none;
+			border: none;
+		}
+	}
+
+	#cha-home {
+		background-image: url("../../assets/characters-sample.jpg");
+		@extend %home-f;
+	}
+}
