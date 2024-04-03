@@ -7,6 +7,7 @@ footer {
 	justify-content: center;
 	position: fixed;
 	bottom: 0;
-	border-top: 1px solid $palceholder-grey;
 	padding: $sml-pa 0;
+	background-color: $bgBlack;
+	border: 1px solid red;
 }

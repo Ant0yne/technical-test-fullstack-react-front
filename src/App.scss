@@ -18,7 +18,9 @@ html {
 body {
 	font-size: 1.6rem;
 	line-height: 22px;
+	color: $white;
 	font-family: "Roboto", sans-serif;
+	background-color: $bgBlack;
 }
 
 button {
@@ -31,16 +33,19 @@ button {
 }
 
 a {
-	color: var(--black);
 	text-decoration: none;
 	font-family: "Roboto", sans-serif;
 	font-size: 1.6rem;
-	color: $black;
+	color: $white;
 	font-weight: bold;
 }
 
 span {
 	font-weight: bold;
+}
+
+.container {
+	// padding: 0 $sml-pa;
 }
 
 /* ----------------- 520 px ----------------- */

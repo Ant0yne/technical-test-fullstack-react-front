@@ -1,4 +1,15 @@
+@import "../../variables";
+
 header {
+	background-color: $bgBlack;
+	z-index: 1;
+	position: sticky;
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
 	img {
 		height: 50px;
 	}
