@@ -1,31 +1,53 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Cookies from "js-cookie";
+
+// ROUTES
+import Home from "./pages/Home";
+import Comics from "./pages/Comics";
+import Comic from "./pages/Comic";
+import Characters from "./pages/Characters";
+import Character from "./pages/Character";
+import NotFound from "./pages/NotFound";
+
 import "./App.scss";
 
 function App() {
-	const [count, setCount] = useState(0);
+	const [token, setToken] = useState(Cookies.get("token") || "");
 
 	return (
-		<>
-			<section id="section">
-				<div className="div">
-					<h1>Titre</h1>
-				</div>
-				<div className="div">
-					<p>Test</p>
-				</div>
-				<div className="div">
-					<button className="button">Button</button>
-				</div>
-				<div className="div">
-					<button className="button">Button</button>
-				</div>
-				<div className="div">
-					<button className="button">Button</button>
-				</div>
-			</section>
-		</>
+		<Router>
+			<Routes>
+				{/* route by default */}
+				<Route path="/" element={<Home token={token} setToken={setToken} />} />
+				{/* All the Comics (default 100 first alphabetic title order*/}
+				<Route
+					path="/comics"
+					element={<Comics token={token} setToken={setToken} />}
+				/>
+				{/* A specific Comic by id*/}
+				<Route
+					path="/comic/:comicId"
+					element={<Comic token={token} setToken={setToken} />}
+				/>
+				{/* All the Characters (default 100 first alphabetic title order*/}
+				<Route
+					path="/characters"
+					element={<Characters token={token} setToken={setToken} />}
+				/>
+				{/* A specific Character by id (with all comics related to them)*/}
+				<Route
+					path="/character/:characterId"
+					element={<Character token={token} setToken={setToken} />}
+				/>
+
+				{/* route 404 not found */}
+				<Route
+					path="*"
+					element={<NotFound token={token} setToken={setToken} />}
+				/>
+			</Routes>
+		</Router>
 	);
 }
 
