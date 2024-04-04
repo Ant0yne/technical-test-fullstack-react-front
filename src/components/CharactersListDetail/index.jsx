@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import "./charactersListDetail.scss";
 
-const CharactersListDetail = ({ character }) => {
+const CharactersListDetail = ({ character, favComics, setFavComics }) => {
 	const { _id, thumbnail, comics, name, description } = character;
 
 	const link = "/comics/" + _id;

@@ -1,13 +1,24 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import "./comicsListDetail.scss";
 
-const ComicsListDetail = ({ comic }) => {
+const ComicsListDetail = ({ comic, favComics, setFavComics }) => {
 	// All the comic info
 	const { thumbnail, _id, title, description } = comic;
+	const [isFav, setIsFav] = useState(false);
+
+	useEffect(() => {
+		for (const favComic of favComics) {
+			_id === favComic._id ? setIsFav(true) : setIsFav(false);
+		}
+	}, [setIsFav]);
+
+	const handleFav = () => {};
 
 	// The path if click on comic with the comic id
 	const link = "/comic/" + _id;
+
 	return (
 		<div className="comic-list-detail">
 			<Link to={link}>
@@ -19,7 +30,11 @@ const ComicsListDetail = ({ comic }) => {
 				<p>{title}</p>
 			<p>{description}</p> */}
 			</Link>
-			<button>Favorite</button>
+			{isFav ? (
+				<button onClick={handleFav}>Remove from Favorite</button>
+			) : (
+				<button onClick={handleFav}>Add to Favorite</button>
+			)}
 		</div>
 	);
 };
