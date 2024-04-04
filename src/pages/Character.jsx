@@ -12,6 +12,10 @@ const Character = ({
 	setIsModalLog,
 	redirect,
 	setRedirect,
+	favCharacters,
+	setFavCharacters,
+	favComics,
+	setFavComics,
 }) => {
 	// Retreive the id in params
 	const { characterId } = useParams();
@@ -27,7 +31,14 @@ const Character = ({
 				setRedirect={setRedirect}
 			/>
 			<main>
-				<CharacterDetail characterId={characterId} />
+				<CharacterDetail
+					characterId={characterId}
+					token={token}
+					favCharacters={favCharacters}
+					setFavCharacters={setFavCharacters}
+					favComics={favComics}
+					setFavComics={setFavComics}
+				/>
 			</main>
 			<Footer />
 		</>

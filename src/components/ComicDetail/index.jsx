@@ -7,11 +7,13 @@ import Loading from "../Loading";
 
 import "./comicDetail.scss";
 
-const ComicDetail = ({ comicId }) => {
+const ComicDetail = ({ comicId, token, favComics, setFavComics }) => {
 	// data received by the request
 	const [data, setData] = useState();
 	// display a loading screen until data is received
 	const [isLoading, setIsLoading] = useState(true);
+	// Check if comic is fav for user
+	const [isFav, setIsFav] = useState(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -30,7 +32,60 @@ const ComicDetail = ({ comicId }) => {
 		};
 
 		fetchData();
-	}, [setData, setIsLoading, comicId]);
+
+		for (const favComic of favComics) {
+			comicId === favComic._id ? setIsFav(true) : setIsFav(false);
+		}
+	}, [setData, setIsLoading, comicId, favComics, setIsFav]);
+
+	const handleFav = async (command) => {
+		if (command === "add") {
+			// Add the comic to the fav list
+			const temp = [...favComics];
+			temp.push(data);
+
+			// Replace the comics fav list for user in DDB
+			//with the new one
+			try {
+				const response = await axios.put(
+					import.meta.env.VITE_BACK + "/user/fav",
+					{
+						favComics: temp,
+						token: token,
+					}
+				);
+				setFavComics(temp);
+				setIsFav(true);
+			} catch (error) {
+				console.error(error.response.data.message);
+			}
+		} else {
+			// Remove the comic to the fav list
+			const temp = [...favComics];
+			for (let i = 0; i < temp.length; i++) {
+				if (temp[i]._id === comicId) {
+					temp.splice(i, 1);
+				}
+			}
+
+			// Replace the comics fav list for user in DDB
+			//with the new one
+			try {
+				const response = await axios.put(
+					import.meta.env.VITE_BACK + "/user/fav",
+					{
+						favComics: temp,
+						token: token,
+					}
+				);
+
+				setFavComics(temp);
+				setIsFav(false);
+			} catch (error) {
+				console.error(error.response.data.message);
+			}
+		}
+	};
 
 	return isLoading ? (
 		<Loading />
@@ -50,7 +105,13 @@ const ComicDetail = ({ comicId }) => {
 					alt=""
 				/>
 			</div>
-			<button>Favorite</button>
+			{isFav ? (
+				<button onClick={() => handleFav("remove")}>
+					Remove from Favorite
+				</button>
+			) : (
+				<button onClick={() => handleFav("add")}>Add to Favorite</button>
+			)}
 		</section>
 	);
 };

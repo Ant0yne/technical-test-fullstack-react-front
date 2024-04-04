@@ -11,6 +11,8 @@ const Characters = ({
 	setIsModalLog,
 	redirect,
 	setRedirect,
+	favCharacters,
+	setFavCharacters,
 }) => {
 	return (
 		<>
@@ -24,7 +26,11 @@ const Characters = ({
 			/>
 			<main>
 				<Hero />
-				<CharactersList />
+				<CharactersList
+					token={token}
+					favCharacters={favCharacters}
+					setFavCharacters={setFavCharacters}
+				/>
 			</main>
 			<Footer />
 		</>

@@ -7,7 +7,7 @@ import ComicsListDetail from "../ComicsListDetail";
 
 import "./comicsList.scss";
 
-const ComicsList = ({ favComics, setFavComics }) => {
+const ComicsList = ({ token, favComics, setFavComics }) => {
 	// data received by the request
 	const [data, setData] = useState();
 	// display a loading screen until data is received
@@ -39,6 +39,7 @@ const ComicsList = ({ favComics, setFavComics }) => {
 					<ComicsListDetail
 						key={comic._id}
 						comic={comic}
+						token={token}
 						favComics={favComics}
 						setFavComics={setFavComics}
 					/>

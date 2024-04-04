@@ -31,8 +31,6 @@ function App() {
 	const [redirect, setRedirect] = useState("");
 
 	useEffect(() => {
-		// const formData = new FormData();
-
 		const fetchData = async () => {
 			try {
 				const response = await axios.get(
@@ -47,6 +45,7 @@ function App() {
 
 				// assign the data sent by the request to data
 				setFavComics(response.data.favComics);
+				setFavCharacters(response.data.favCharacters);
 				// remove the loading screen
 				setIsLoading(false);
 			} catch (error) {
@@ -138,6 +137,8 @@ function App() {
 								setRedirect={setRedirect}
 								favCharacters={favCharacters}
 								setFavCharacters={setFavCharacters}
+								favComics={favComics}
+								setFavComics={setFavComics}
 							/>
 						}
 					/>

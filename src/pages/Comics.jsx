@@ -26,7 +26,11 @@ const Comics = ({
 			/>
 			<main>
 				<Hero />
-				<ComicsList favComics={favComics} setFavComics={setFavComics} />
+				<ComicsList
+					token={token}
+					favComics={favComics}
+					setFavComics={setFavComics}
+				/>
 			</main>
 			<Footer />
 		</>

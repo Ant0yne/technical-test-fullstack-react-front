@@ -8,11 +8,20 @@ import ComicsListDetail from "../ComicsListDetail";
 
 import "./characterDetail.scss";
 
-const CharacterDetail = ({ characterId }) => {
+const CharacterDetail = ({
+	characterId,
+	token,
+	favCharacters,
+	setFavCharacters,
+	favComics,
+	setFavComics,
+}) => {
 	// data received by the request
 	const [data, setData] = useState();
 	// display a loading screen until data is received
 	const [isLoading, setIsLoading] = useState(true);
+	// Check if comic is fav for user
+	const [isFav, setIsFav] = useState(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -31,7 +40,59 @@ const CharacterDetail = ({ characterId }) => {
 		};
 
 		fetchData();
-	}, [setData, setIsLoading, characterId]);
+
+		for (const favCharacter of favCharacters) {
+			characterId === favCharacter._id ? setIsFav(true) : setIsFav(false);
+		}
+	}, [setData, setIsLoading, characterId, favCharacters, setIsFav]);
+
+	const handleFav = async (command) => {
+		if (command === "add") {
+			// Add the characters to the fav list
+			const temp = [...favCharacters];
+			temp.push(data);
+
+			// Replace the characters fav list for user in DDB
+			//with the new one
+			try {
+				const response = await axios.put(
+					import.meta.env.VITE_BACK + "/user/fav",
+					{
+						favCharacters: temp,
+						token: token,
+					}
+				);
+				setFavCharacters(temp);
+				setIsFav(true);
+			} catch (error) {
+				console.error(error.response.data.message);
+			}
+		} else {
+			// Remove the characters from the fav list
+			const temp = [...favCharacters];
+			for (let i = 0; i < temp.length; i++) {
+				if (temp[i]._id === characterId) {
+					temp.splice(i, 1);
+				}
+			}
+
+			// Replace the characters fav list for user in DDB
+			//with the new one
+			try {
+				const response = await axios.put(
+					import.meta.env.VITE_BACK + "/user/fav",
+					{
+						favCharacters: temp,
+						token: token,
+					}
+				);
+				setFavCharacters(temp);
+				setIsFav(false);
+			} catch (error) {
+				console.error(error.response.data.message);
+			}
+		}
+	};
 
 	return isLoading ? (
 		<Loading />
@@ -50,14 +111,28 @@ const CharacterDetail = ({ characterId }) => {
 					}
 					alt=""
 				/>
+				{isFav ? (
+					<button onClick={() => handleFav("remove")}>
+						Remove from Favorite
+					</button>
+				) : (
+					<button onClick={() => handleFav("add")}>Add to Favorite</button>
+				)}
 			</div>
 			<aside>
 				<p>Apparait dans :</p>
 				{data.comics.map((comic) => {
-					return <ComicsListDetail key={comic._id} comic={comic} />;
+					return (
+						<ComicsListDetail
+							key={comic._id}
+							comic={comic}
+							token={token}
+							favComics={favComics}
+							setFavComics={setFavComics}
+						/>
+					);
 				})}
 			</aside>
-			<button>Favorite</button>
 		</section>
 	);
 };

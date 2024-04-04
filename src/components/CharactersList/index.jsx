@@ -7,7 +7,7 @@ import CharactersListDetail from "../CharactersListDetail";
 
 import "./charactersList.scss";
 
-const CharactersList = () => {
+const CharactersList = ({ token, favCharacters, setFavCharacters }) => {
 	// data received by the request
 	const [data, setData] = useState();
 	// display a loading screen until data is received
@@ -38,7 +38,13 @@ const CharactersList = () => {
 		<section id="characters-list">
 			{data.results.map((character) => {
 				return (
-					<CharactersListDetail key={character._id} character={character} />
+					<CharactersListDetail
+						key={character._id}
+						character={character}
+						token={token}
+						favCharacters={favCharacters}
+						setFavCharacters={setFavCharacters}
+					/>
 				);
 			})}
 		</section>

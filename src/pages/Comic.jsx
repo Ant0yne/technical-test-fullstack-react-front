@@ -12,6 +12,8 @@ const Comic = ({
 	setIsModalLog,
 	redirect,
 	setRedirect,
+	favComics,
+	setFavComics,
 }) => {
 	// Retreive the id in params
 	const { comicId } = useParams();
@@ -27,7 +29,12 @@ const Comic = ({
 				setRedirect={setRedirect}
 			/>
 			<main>
-				<ComicDetail comicId={comicId} />
+				<ComicDetail
+					comicId={comicId}
+					token={token}
+					favComics={favComics}
+					setFavComics={setFavComics}
+				/>
 			</main>
 			<Footer />
 		</>
