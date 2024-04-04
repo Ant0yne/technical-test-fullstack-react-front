@@ -4,7 +4,14 @@ import Hero from "../components/Hero";
 import ComicsList from "../components/ComicsList";
 import Footer from "../components/Footer";
 
-const Comics = ({ token, setToken, isModalLog, setIsModalLog }) => {
+const Comics = ({
+	token,
+	setToken,
+	isModalLog,
+	setIsModalLog,
+	redirect,
+	setRedirect,
+}) => {
 	return (
 		<>
 			<Header
@@ -12,6 +19,8 @@ const Comics = ({ token, setToken, isModalLog, setIsModalLog }) => {
 				setToken={setToken}
 				isModalLog={isModalLog}
 				setIsModalLog={setIsModalLog}
+				redirect={redirect}
+				setRedirect={setRedirect}
 			/>
 			<main>
 				<Hero />

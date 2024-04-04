@@ -18,7 +18,7 @@ const Profile = ({
 	useEffect(() => {
 		if (!token) {
 			setIsModalLog(true);
-			setRedirect("/");
+			setRedirect("profile");
 			navigate("/");
 		}
 	}, [token, setIsModalLog, setRedirect, navigate]);

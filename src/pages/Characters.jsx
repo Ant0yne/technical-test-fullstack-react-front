@@ -4,7 +4,14 @@ import Hero from "../components/Hero";
 import CharactersList from "../components/CharactersList";
 import Footer from "../components/Footer";
 
-const Characters = ({ token, setToken, isModalLog, setIsModalLog }) => {
+const Characters = ({
+	token,
+	setToken,
+	isModalLog,
+	setIsModalLog,
+	redirect,
+	setRedirect,
+}) => {
 	return (
 		<>
 			<Header
@@ -12,6 +19,8 @@ const Characters = ({ token, setToken, isModalLog, setIsModalLog }) => {
 				setToken={setToken}
 				isModalLog={isModalLog}
 				setIsModalLog={setIsModalLog}
+				redirect={redirect}
+				setRedirect={setRedirect}
 			/>
 			<main>
 				<Hero />

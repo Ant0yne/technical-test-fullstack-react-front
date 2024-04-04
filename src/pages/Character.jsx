@@ -5,7 +5,14 @@ import Header from "../components/Header";
 import CharacterDetail from "../components/CharacterDetail";
 import Footer from "../components/Footer";
 
-const Character = ({ token, setToken, isModalLog, setIsModalLog }) => {
+const Character = ({
+	token,
+	setToken,
+	isModalLog,
+	setIsModalLog,
+	redirect,
+	setRedirect,
+}) => {
 	// Retreive the id in params
 	const { characterId } = useParams();
 
@@ -16,6 +23,8 @@ const Character = ({ token, setToken, isModalLog, setIsModalLog }) => {
 				setToken={setToken}
 				isModalLog={isModalLog}
 				setIsModalLog={setIsModalLog}
+				redirect={redirect}
+				setRedirect={setRedirect}
 			/>
 			<main>
 				<CharacterDetail characterId={characterId} />

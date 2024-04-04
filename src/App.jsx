@@ -21,7 +21,6 @@ function App() {
 	const [isModalLog, setIsModalLog] = useState(false);
 	// If the user needs to be redirect after sign/log
 	const [redirect, setRedirect] = useState("");
-	console.log(typeof setIsModalLog);
 
 	return (
 		<Router>
@@ -35,6 +34,8 @@ function App() {
 							setToken={setToken}
 							isModalLog={isModalLog}
 							setIsModalLog={setIsModalLog}
+							redirect={redirect}
+							setRedirect={setRedirect}
 						/>
 					}
 				/>
@@ -47,6 +48,8 @@ function App() {
 							setToken={setToken}
 							isModalLog={isModalLog}
 							setIsModalLog={setIsModalLog}
+							redirect={redirect}
+							setRedirect={setRedirect}
 						/>
 					}
 				/>
@@ -59,6 +62,8 @@ function App() {
 							setToken={setToken}
 							isModalLog={isModalLog}
 							setIsModalLog={setIsModalLog}
+							redirect={redirect}
+							setRedirect={setRedirect}
 						/>
 					}
 				/>
@@ -71,6 +76,8 @@ function App() {
 							setToken={setToken}
 							isModalLog={isModalLog}
 							setIsModalLog={setIsModalLog}
+							redirect={redirect}
+							setRedirect={setRedirect}
 						/>
 					}
 				/>
@@ -83,6 +90,8 @@ function App() {
 							setToken={setToken}
 							isModalLog={isModalLog}
 							setIsModalLog={setIsModalLog}
+							redirect={redirect}
+							setRedirect={setRedirect}
 						/>
 					}
 				/>
