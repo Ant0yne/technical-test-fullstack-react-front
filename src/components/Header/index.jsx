@@ -1,68 +1,95 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+
+// COMPONENTS
+import SignUp from "../SignUp";
+import LogIn from "../LogIn";
 
 // ASSETS
 import marvelLogo from "../../assets/marvel-logo.png";
 
 import "./header.scss";
 
-const Header = ({ token, setToken }) => {
-	// the actual width of the screen
-	// const [width, setWidth] = useState(window.innerWidth);
-	// const [onMobile, setOnMobile] = useState(true);
+const Header = ({
+	token,
+	setToken,
+	isModalLog,
+	setIsModalLog,
+	redirect,
+	setRedirect,
+}) => {
+	// display the modal to sign
+	const [isModalSign, setIsModalSign] = useState(false);
 
-	// When the width change, change the state width with the new width
-	// Start displaying additionnal button if width no more mobile size
-	// Then stop listening to the width change
-	// useEffect(() => {
-	// 	const handleResize = () => {
-	// 		setWidth(window.innerWidth);
-	// 	};
+	const navigate = useNavigate();
 
-	// 	window.addEventListener("resize", handleResize);
+	/**
+	 *  When click on "Se déconnecter" button
+	 */
+	const handleLogOut = () => {
+		Cookies.remove("token");
+		const tokenTemp = "";
+		return setToken(tokenTemp);
+	};
 
-	// 	if (width > 520 && onMobile) {
-	// 		setOnMobile(false);
-	// 	} else if (width <= 520 && !onMobile) {
-	// 		setOnMobile(true);
-	// 	}
-
-	// 	return () => {
-	// 		window.removeEventListener("resize", handleResize);
-	// 	};
-	// }, [width, setWidth, setOnMobile, onMobile]);
+	/**
+	 *
+	 * @param {String} type
+	 *
+	 * return to the top of screen
+	 *
+	 * display Sign up modal or Login modal regarding wich button is click
+	 */
+	const handleSignLog = (type) => {
+		if (type === "sign") {
+			setIsModalLog(false);
+			setIsModalSign(true);
+		} else {
+			setIsModalSign(false);
+			setIsModalLog(true);
+		}
+	};
 
 	return (
-		<header>
-			<div className="container">
-				<div>
-					<Link to="/">
-						<img src={marvelLogo} alt="" />
-					</Link>
+		<>
+			<header>
+				<div className="container">
+					<div>
+						<Link to="/">
+							<img src={marvelLogo} alt="" />
+						</Link>
+					</div>
+					{token ? (
+						<div>
+							<button onClick={() => navigate("/profile")}>Profile</button>
+							<button onClick={handleLogOut}>Log out</button>
+						</div>
+					) : (
+						<div>
+							<button onClick={() => handleSignLog("log")}>Log In</button>{" "}
+							<button onClick={() => handleSignLog("sign")}>Sign Up</button>
+						</div>
+					)}
 				</div>
-				{token ? (
-					<div>
-						{/* {onMobile ? ( */}
-						{/* <button>Profile</button> */}
-						{/* // ) : ( */}
-						{/* <> */}
-						<button>Profile</button> <button>Log out</button>
-						{/* </> */}
-						{/* // )} */}
-					</div>
-				) : (
-					<div>
-						{/* {onMobile ? ( */}
-						{/* <button>Log In</button> */}
-						{/* ) : ( */}
-						{/* <> */}
-						<button>Log In</button> <button>Sign Up</button>
-						{/* </> */}
-						{/* )} */}
-					</div>
-				)}
-			</div>
-		</header>
+			</header>
+			{isModalSign && (
+				<SignUp
+					setIsModalSign={setIsModalSign}
+					setIsModalLog={setIsModalLog}
+					setToken={setToken}
+				/>
+			)}
+			{isModalLog && (
+				<LogIn
+					setIsModalLog={setIsModalLog}
+					setIsModalSign={setIsModalSign}
+					setToken={setToken}
+					redirect={redirect}
+					setRedirect={setRedirect}
+				/>
+			)}
+		</>
 	);
 };
 

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 // COMPONENTS
 import Loading from "../Loading";
+import ComicsListDetail from "../ComicsListDetail";
 
 import "./characterDetail.scss";
 
@@ -50,6 +51,12 @@ const CharacterDetail = ({ characterId }) => {
 					alt=""
 				/>
 			</div>
+			<aside>
+				<p>Apparait dans :</p>
+				{data.comics.map((comic) => {
+					return <ComicsListDetail key={comic._id} comic={comic} />;
+				})}
+			</aside>
 			<button>Favorite</button>
 		</section>
 	);
