@@ -10,8 +10,8 @@ const Hero = ({
 	setLimit,
 	skip,
 	setSkip,
-	title,
-	setTitle,
+	search,
+	setSearch,
 	pageType,
 }) => {
 	const navigate = useNavigate();
@@ -26,11 +26,11 @@ const Hero = ({
 	const sendQuery = () => {
 		if (pageType === "charac") {
 			let url = "/characters?";
-			url = url + "name=" + title;
+			url = url + "name=" + search;
 			navigate(url);
 		} else {
 			let url = "/comics?";
-			url = url + "title=" + title;
+			url = url + "title=" + search;
 			navigate(url);
 		}
 	};
@@ -47,8 +47,8 @@ const Hero = ({
 					name="search-bar"
 					id="search-bar"
 					placeholder="Rechercher des comics"
-					value={title}
-					onChange={(e) => setTitle(e.target.value)}
+					value={search}
+					onChange={(e) => setSearch(e.target.value)}
 				/>
 			</form>
 			<QueryPagination

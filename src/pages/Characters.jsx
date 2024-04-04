@@ -21,13 +21,13 @@ const Characters = ({
 	const [queries, setQueries] = useSearchParams();
 	const [limit, setLimit] = useState(queries.get("limit") || 100);
 	const [skip, setSkip] = useState(queries.get("skip") || 0);
-	const [title, setTitle] = useState(queries.get("title") || "");
+	const [name, setName] = useState(queries.get("name") || "");
 	// To navigate with the goog url
 	const pageType = "charac";
 
 	const url = `${
 		import.meta.env.VITE_BACK
-	}/characters?name=${title}&limit=${limit}&skip=${skip}`;
+	}/characters?name=${name}&limit=${limit}&skip=${skip}`;
 
 	return (
 		<>
@@ -45,8 +45,8 @@ const Characters = ({
 					setLimit={setLimit}
 					skip={skip}
 					setSkip={setSkip}
-					title={title}
-					setTitle={setTitle}
+					search={name}
+					setSearch={setName}
 					pageType={pageType}
 				/>
 				<CharactersList

@@ -45,8 +45,8 @@ const Comics = ({
 					setLimit={setLimit}
 					skip={skip}
 					setSkip={setSkip}
-					title={title}
-					setTitle={setTitle}
+					search={title}
+					setSearch={setTitle}
 					pageType={pageType}
 				/>
 				<ComicsList
