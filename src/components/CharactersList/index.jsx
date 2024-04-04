@@ -7,7 +7,7 @@ import CharactersListDetail from "../CharactersListDetail";
 
 import "./charactersList.scss";
 
-const CharactersList = ({ token, favCharacters, setFavCharacters }) => {
+const CharactersList = ({ token, favCharacters, setFavCharacters, url }) => {
 	// data received by the request
 	const [data, setData] = useState();
 	// display a loading screen until data is received
@@ -16,9 +16,7 @@ const CharactersList = ({ token, favCharacters, setFavCharacters }) => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await axios.get(
-					import.meta.env.VITE_BACK + "/characters"
-				);
+				const response = await axios.get(url);
 
 				// assign the data sent by the request to data
 				setData(response.data);
@@ -30,7 +28,7 @@ const CharactersList = ({ token, favCharacters, setFavCharacters }) => {
 		};
 
 		fetchData();
-	}, [setData, setIsLoading]);
+	}, [setData, setIsLoading, url]);
 
 	return isLoading ? (
 		<Loading />

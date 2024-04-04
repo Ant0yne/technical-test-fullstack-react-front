@@ -7,7 +7,7 @@ import ComicsListDetail from "../ComicsListDetail";
 
 import "./comicsList.scss";
 
-const ComicsList = ({ token, favComics, setFavComics }) => {
+const ComicsList = ({ token, favComics, setFavComics, url }) => {
 	// data received by the request
 	const [data, setData] = useState();
 	// display a loading screen until data is received
@@ -16,7 +16,7 @@ const ComicsList = ({ token, favComics, setFavComics }) => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await axios.get(import.meta.env.VITE_BACK + "/comics");
+				const response = await axios.get(url);
 
 				// assign the data sent by the request to data
 				setData(response.data);
@@ -28,7 +28,7 @@ const ComicsList = ({ token, favComics, setFavComics }) => {
 		};
 
 		fetchData();
-	}, [setData, setIsLoading]);
+	}, [setData, setIsLoading, url]);
 
 	return isLoading ? (
 		<Loading />

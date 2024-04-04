@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+
 // COMPONENTS
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -14,6 +17,18 @@ const Comics = ({
 	favComics,
 	setFavComics,
 }) => {
+	// retreive the queries and set default value if there is none
+	const [queries, setQueries] = useSearchParams();
+	const [limit, setLimit] = useState(queries.get("limit") || 100);
+	const [skip, setSkip] = useState(queries.get("skip") || 0);
+	const [title, setTitle] = useState(queries.get("title") || "");
+	// To navigate with the goog url
+	const pageType = "comics";
+
+	const url = `${
+		import.meta.env.VITE_BACK
+	}/comics?title=${title}&limit=${limit}&skip=${skip}`;
+
 	return (
 		<>
 			<Header
@@ -25,9 +40,18 @@ const Comics = ({
 				setRedirect={setRedirect}
 			/>
 			<main>
-				<Hero />
+				<Hero
+					limit={limit}
+					setLimit={setLimit}
+					skip={skip}
+					setSkip={setSkip}
+					title={title}
+					setTitle={setTitle}
+					pageType={pageType}
+				/>
 				<ComicsList
 					token={token}
+					url={url}
 					favComics={favComics}
 					setFavComics={setFavComics}
 				/>
