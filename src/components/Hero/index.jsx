@@ -1,46 +1,15 @@
-import { useNavigate } from "react-router-dom";
-
 // COMPONENTS
 import QueryPagination from "../QueryPagination";
 
 import "./hero.scss";
 
-const Hero = ({
-	limit,
-	setLimit,
-	skip,
-	setSkip,
-	search,
-	setSearch,
-	pageType,
-}) => {
-	const navigate = useNavigate();
-
-	/**
-	 *
-	 * function when subimitting the form
-	 *
-	 * add all the query to the url then navigate to this url
-	 *
-	 */
-	const sendQuery = () => {
-		if (pageType === "charac") {
-			let url = "/characters?";
-			url = url + "name=" + search;
-			navigate(url);
-		} else {
-			let url = "/comics?";
-			url = url + "title=" + search;
-			navigate(url);
-		}
-	};
-
+const Hero = ({ limit, setLimit, skip, setSkip, search, setSearch, count }) => {
 	return (
 		<section>
 			<form
 				onSubmit={(e) => {
 					e.preventDefault();
-					sendQuery();
+					// sendQuery();
 				}}>
 				<input
 					type="text"
@@ -56,6 +25,7 @@ const Hero = ({
 				setSkip={setSkip}
 				limit={limit}
 				setLimit={setLimit}
+				count={count}
 			/>
 		</section>
 	);
