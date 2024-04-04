@@ -1,6 +1,3 @@
-import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-
 // COMPONENTS
 import Header from "../components/Header";
 import ComicsList from "../components/ComicsList";
