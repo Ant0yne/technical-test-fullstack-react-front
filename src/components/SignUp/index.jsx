@@ -9,7 +9,7 @@ import "./signUp.scss";
 
 const SignUp = ({ setIsModalSign, setIsModalLog, setToken }) => {
 	// state for all the input values
-	const [file, setFile] = useState([]);
+	const [file, setFile] = useState();
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -69,7 +69,7 @@ const SignUp = ({ setIsModalSign, setIsModalLog, setToken }) => {
 				<form onSubmit={(e) => sendData(e)}>
 					<h2>S'inscrire</h2>
 
-					<DropFiles files={file} setFiles={setFile} isAvatar={true} />
+					<DropFiles file={file} setFile={setFile} />
 
 					{/* The error from the request to display */}
 					<span
