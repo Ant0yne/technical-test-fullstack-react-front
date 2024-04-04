@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+// ASSETS
 import marvelLogo from "../../assets/marvel-logo.png";
 
 import "./header.scss";

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+// COMPONENTS
 import Loading from "../Loading";
 import ComicsListDetail from "../ComicsListDetail";
 

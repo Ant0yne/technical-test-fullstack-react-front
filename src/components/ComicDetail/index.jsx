@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+// COMPONENTS
 import Loading from "../Loading";
 
 import "./comicDetail.scss";
@@ -35,6 +36,7 @@ const ComicDetail = ({ comicId }) => {
 		<Loading />
 	) : (
 		<section id="comic-detail">
+			{/* Return to search with queries conserved */}
 			<Link to="/comics">
 				<button>Return to Search</button>
 			</Link>

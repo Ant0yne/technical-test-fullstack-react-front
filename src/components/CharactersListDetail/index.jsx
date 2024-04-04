@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./charactersListDetail.scss";
 
 const CharactersListDetail = ({ character }) => {
-	console.log(character);
 	const { _id, thumbnail, comics, name, description } = character;
 
 	const link = "/comics/" + _id;

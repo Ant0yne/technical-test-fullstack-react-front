@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 
+// COMPONENTS
 import Header from "../components/Header";
 import ComicDetail from "../components/ComicDetail";
 import Footer from "../components/Footer";

@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import "./comicsListDetail.scss";
 
 const ComicsListDetail = ({ comic }) => {
+	// All the comic info
 	const { thumbnail, _id, title, description } = comic;
 
+	// The path if click on comic with the comic id
 	const link = "/comic/" + _id;
 	return (
 		<div className="comic-list-detail">
