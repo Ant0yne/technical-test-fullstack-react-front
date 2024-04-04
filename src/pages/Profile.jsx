@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 // COMPONENTS
 import Header from "../components/Header";
 import ProfileInfo from "../components/ProfileInfo";
+import ProfileFavComics from "../components/ProfileFavComics";
+import ProfileFavCharac from "../components/ProfileFavCharac";
 import Footer from "../components/Footer";
 
 const Profile = ({
@@ -13,6 +15,11 @@ const Profile = ({
 	setIsModalLog,
 	redirect,
 	setRedirect,
+	user,
+	favComics,
+	setFavComics,
+	favCharacters,
+	setFavCharacters,
 }) => {
 	const onProfilePage = true;
 	const navigate = useNavigate();
@@ -35,6 +42,14 @@ const Profile = ({
 				setRedirect={setRedirect}
 				onProfilePage={onProfilePage}
 			/>
+			<main>
+				<ProfileInfo {...user} />
+				<ProfileFavComics favComics={favComics} setFavComics={setFavComics} />
+				<ProfileFavCharac
+					favCharacters={favCharacters}
+					setFavCharacters={setFavCharacters}
+				/>
+			</main>
 			<Footer />
 		</>
 	);

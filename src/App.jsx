@@ -19,9 +19,11 @@ function App() {
 	// Check if there is a cookie "token"
 	// if not, init token with ""
 	const [token, setToken] = useState(Cookies.get("token") || "");
-	// favorites Comics and Characters for user
+	// favorites Comics and Characters and Profile for user
 	const [favComics, setFavComics] = useState([]);
 	const [favCharacters, setFavCharacters] = useState([]);
+	const [user, setUser] = useState();
+
 	// display a loading screen until data is received
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -46,6 +48,10 @@ function App() {
 				// assign the data sent by the request to data
 				setFavComics(response.data.favComics);
 				setFavCharacters(response.data.favCharacters);
+				setUser({
+					username: response.data.acount.username,
+					avatar: response.data.acount.avatar,
+				});
 				// remove the loading screen
 				setIsLoading(false);
 			} catch (error) {
@@ -54,7 +60,7 @@ function App() {
 		};
 
 		fetchData();
-	}, [setFavComics, setIsLoading, token]);
+	}, [setFavComics, setIsLoading, setUser, token]);
 
 	return isLoading ? (
 		<Loading />
@@ -153,6 +159,7 @@ function App() {
 								setIsModalLog={setIsModalLog}
 								redirect={redirect}
 								setRedirect={setRedirect}
+								user={user}
 								favComics={favComics}
 								setFavComics={setFavComics}
 								favCharacters={favCharacters}
