@@ -17,6 +17,7 @@ function App() {
 	// Check if there is a cookie "token"
 	// if not, init token with ""
 	const [token, setToken] = useState(Cookies.get("token") || "");
+
 	// display the modal to login
 	const [isModalLog, setIsModalLog] = useState(false);
 	// If the user needs to be redirect after sign/log
