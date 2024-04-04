@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 // COMPONENTS
 import Header from "../components/Header";
+import ProfileInfo from "../components/ProfileInfo";
 import Footer from "../components/Footer";
 
 const Profile = ({
@@ -13,6 +14,7 @@ const Profile = ({
 	redirect,
 	setRedirect,
 }) => {
+	const onProfilePage = true;
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -31,6 +33,7 @@ const Profile = ({
 				setIsModalLog={setIsModalLog}
 				redirect={redirect}
 				setRedirect={setRedirect}
+				onProfilePage={onProfilePage}
 			/>
 			<Footer />
 		</>

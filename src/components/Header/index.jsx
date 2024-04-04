@@ -18,6 +18,7 @@ const Header = ({
 	setIsModalLog,
 	redirect,
 	setRedirect,
+	onProfilePage,
 }) => {
 	// display the modal to sign
 	const [isModalSign, setIsModalSign] = useState(false);
@@ -62,7 +63,9 @@ const Header = ({
 					</div>
 					{token ? (
 						<div>
-							<button onClick={() => navigate("/profile")}>Profile</button>
+							{!onProfilePage && (
+								<button onClick={() => navigate("/profile")}>Profile</button>
+							)}
 							<button onClick={handleLogOut}>Log out</button>
 						</div>
 					) : (
