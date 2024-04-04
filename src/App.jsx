@@ -37,7 +37,7 @@ function App() {
 				/>
 				{/* A specific Character by id (with all comics related to them)*/}
 				<Route
-					path="/character/:characterId"
+					path="/comics/:characterId"
 					element={<Character token={token} setToken={setToken} />}
 				/>
 

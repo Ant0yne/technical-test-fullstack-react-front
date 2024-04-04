@@ -38,6 +38,10 @@ a {
 	font-size: 1.6rem;
 	color: $white;
 	font-weight: bold;
+
+	:hover {
+		cursor: pointer;
+	}
 }
 
 span {

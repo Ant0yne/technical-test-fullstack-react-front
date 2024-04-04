@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 
-import "./comicsListDetail.scss";
+import "./charactersListDetail.scss";
 
-const ComicsListDetail = ({ comic }) => {
-	const { thumbnail, _id, title, description } = comic;
+const CharactersListDetail = ({ character }) => {
+	console.log(character);
+	const { _id, thumbnail, comics, name, description } = character;
 
-	const link = "/comic/" + _id;
+	const link = "/comics/" + _id;
 	return (
 		<div className="comic-list-detail">
 			<Link to={link}>
@@ -13,13 +14,10 @@ const ComicsListDetail = ({ comic }) => {
 					src={thumbnail.path + "/portrait_small." + thumbnail.extension}
 					alt=""
 				/>
-				{/* <p>{_id}</p>
-				<p>{title}</p>
-			<p>{description}</p> */}
 			</Link>
 			<button>Favorite</button>
 		</div>
 	);
 };
 
-export default ComicsListDetail;
+export default CharactersListDetail;

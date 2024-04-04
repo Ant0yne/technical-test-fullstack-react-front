@@ -2,11 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 import Loading from "../Loading";
-import ComicsListDetail from "../ComicsListDetail";
+import CharactersListDetail from "../CharactersListDetail";
 
-import "./comicsList.scss";
+import "./charactersList.scss";
 
-const ComicsList = () => {
+const CharactersList = () => {
 	// data received by the request
 	const [data, setData] = useState();
 	// display a loading screen until data is received
@@ -15,7 +15,9 @@ const ComicsList = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await axios.get(import.meta.env.VITE_BACK + "/comics");
+				const response = await axios.get(
+					import.meta.env.VITE_BACK + "/characters"
+				);
 
 				// assign the data sent by the request to data
 				setData(response.data);
@@ -32,12 +34,14 @@ const ComicsList = () => {
 	return isLoading ? (
 		<Loading />
 	) : (
-		<section id="comics-list">
-			{data.results.map((comic) => {
-				return <ComicsListDetail key={comic._id} comic={comic} />;
+		<section id="characters-list">
+			{data.results.map((character) => {
+				return (
+					<CharactersListDetail key={character._id} character={character} />
+				);
 			})}
 		</section>
 	);
 };
 
-export default ComicsList;
+export default CharactersList;

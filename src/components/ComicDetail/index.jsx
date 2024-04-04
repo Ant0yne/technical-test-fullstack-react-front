@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import Loading from "../Loading";
-import ComicsListDetail from "../ComicsListDetail";
 
-import "./comicsList.scss";
+import "./comicDetail.scss";
 
-const ComicsList = () => {
+const ComicDetail = ({ comicId }) => {
 	// data received by the request
 	const [data, setData] = useState();
 	// display a loading screen until data is received
@@ -15,7 +15,9 @@ const ComicsList = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await axios.get(import.meta.env.VITE_BACK + "/comics");
+				const response = await axios.get(
+					import.meta.env.VITE_BACK + "/comic/" + comicId
+				);
 
 				// assign the data sent by the request to data
 				setData(response.data);
@@ -27,17 +29,28 @@ const ComicsList = () => {
 		};
 
 		fetchData();
-	}, [setData, setIsLoading]);
+	}, [setData, setIsLoading, comicId]);
 
 	return isLoading ? (
 		<Loading />
 	) : (
-		<section id="comics-list">
-			{data.results.map((comic) => {
-				return <ComicsListDetail key={comic._id} comic={comic} />;
-			})}
+		<section id="comic-detail">
+			<Link to="/comics">
+				<button>Return to Search</button>
+			</Link>
+			<div>
+				<img
+					src={
+						data.thumbnail.path +
+						"/portrait_uncanny." +
+						data.thumbnail.extension
+					}
+					alt=""
+				/>
+			</div>
+			<button>Favorite</button>
 		</section>
 	);
 };
 
-export default ComicsList;
+export default ComicDetail;
