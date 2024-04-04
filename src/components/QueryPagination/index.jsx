@@ -1,31 +1,8 @@
-import { useNavigate } from "react-router-dom";
-
 import Pagination from "rc-pagination";
 
 import "./queryPagination.scss";
 
 const QueryPagination = ({ limit, setLimit, skip, setSkip, count }) => {
-	const navigate = useNavigate();
-
-	function Select(props) {
-		return <select {...props} />;
-	}
-
-	function Option(props) {
-		const temp = { ...props };
-		const arr = temp.children.split(" ");
-		temp.children = arr[0] + " results";
-		console.log(temp);
-		props = { ...temp };
-		return <option {...props} />;
-	}
-
-	Select.Option = Option;
-
-	const onShowSizeChange = (current, pageSize) => {
-		setLimit(pageSize);
-	};
-
 	return (
 		<nav id="pagination">
 			<Pagination
@@ -37,10 +14,16 @@ const QueryPagination = ({ limit, setLimit, skip, setSkip, count }) => {
 				onChange={(current, pageSize) => {
 					return setSkip(current * pageSize - pageSize);
 				}}
-				onShowSizeChange={onShowSizeChange}
-				pageSizeOptions={["10", "25", "50"]}
-				selectComponentClass={Select}
 			/>
+			<select
+				onChange={(e) => setLimit(e.target.value)}
+				name="skip-select"
+				id="skip-select">
+				<option value="">100 results</option>
+				<option value="50">50 results</option>
+				<option value="25">25 results</option>
+				<option value="10">10 results</option>
+			</select>
 		</nav>
 	);
 };
