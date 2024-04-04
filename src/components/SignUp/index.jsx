@@ -32,7 +32,7 @@ const SignUp = ({ setIsModalSign, setIsModalLog, setToken }) => {
 		const formData = new FormData();
 		// Create an array with the pictures in the key "picture" in the formData
 
-		formData.append("avatar", file[0]);
+		formData.append("avatar", file);
 		formData.append("username", username);
 		formData.append("email", email);
 		formData.append("password", password);

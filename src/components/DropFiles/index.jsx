@@ -4,13 +4,9 @@ import { useEffect } from "react";
 import "./dropFiles.scss";
 
 const DropFiles = ({ file, setFile }) => {
-	console.log(file);
-	console.log(setFile);
-
 	const { acceptedFiles, getRootProps, getInputProps, isDragActive } =
 		useDropzone({ maxFiles: 1 });
 
-	console.log(acceptedFiles);
 	// Update the state with the files with what is added to the component
 	useEffect(() => {
 		setFile(acceptedFiles[0]);
