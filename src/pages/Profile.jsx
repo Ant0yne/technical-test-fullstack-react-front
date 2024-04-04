@@ -31,6 +31,7 @@ const Profile = ({
 			navigate("/");
 		}
 	}, [token, setIsModalLog, setRedirect, navigate]);
+
 	return (
 		<>
 			<Header

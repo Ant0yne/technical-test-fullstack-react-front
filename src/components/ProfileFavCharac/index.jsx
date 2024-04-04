@@ -1,6 +1,6 @@
 import "./profileFavCharac.scss";
 
-const ProfileFavCharac = () => {
+const ProfileFavCharac = ({ favComics, setFavComics }) => {
 	return <div>ProfileFavCharac</div>;
 };
 

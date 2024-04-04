@@ -45,12 +45,15 @@ function App() {
 					}
 				);
 
-				// assign the data sent by the request to data
+				const username = response.data.account.username;
+				const avatar = response.data.account.avatar.secure_url;
+
+				// assign the data sent by the request
 				setFavComics(response.data.favComics);
 				setFavCharacters(response.data.favCharacters);
 				setUser({
-					username: response.data.acount.username,
-					avatar: response.data.acount.avatar,
+					username,
+					avatar,
 				});
 				// remove the loading screen
 				setIsLoading(false);
