@@ -15,6 +15,7 @@ const CharacterDetail = ({
 	setFavCharacters,
 	favComics,
 	setFavComics,
+	setIsModalLog,
 }) => {
 	// data received by the request
 	const [data, setData] = useState();
