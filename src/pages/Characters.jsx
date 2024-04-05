@@ -28,6 +28,7 @@ const Characters = ({
 					token={token}
 					favCharacters={favCharacters}
 					setFavCharacters={setFavCharacters}
+					setIsModalLog={setIsModalLog}
 				/>
 			</main>
 			<Footer />

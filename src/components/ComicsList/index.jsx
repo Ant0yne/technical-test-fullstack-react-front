@@ -9,7 +9,7 @@ import ComicsListDetail from "../ComicsListDetail";
 
 import "./comicsList.scss";
 
-const ComicsList = ({ token, favComics, setFavComics }) => {
+const ComicsList = ({ token, favComics, setFavComics, setIsModalLog }) => {
 	// data received by the request
 	const [data, setData] = useState();
 	// display a loading screen until data is received
@@ -63,6 +63,7 @@ const ComicsList = ({ token, favComics, setFavComics }) => {
 							token={token}
 							favComics={favComics}
 							setFavComics={setFavComics}
+							setIsModalLog={setIsModalLog}
 						/>
 					);
 				})}

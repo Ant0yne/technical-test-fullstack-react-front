@@ -4,7 +4,13 @@ import axios from "axios";
 
 import "./comicsListDetail.scss";
 
-const ComicsListDetail = ({ comic, token, favComics, setFavComics }) => {
+const ComicsListDetail = ({
+	comic,
+	token,
+	favComics,
+	setFavComics,
+	setIsModalLog,
+}) => {
 	// All the comic info
 	const { thumbnail, _id, title, description } = comic;
 	// Check if comic is fav for user
@@ -17,50 +23,54 @@ const ComicsListDetail = ({ comic, token, favComics, setFavComics }) => {
 	}, [setIsFav]);
 
 	const handleFav = async (command) => {
-		if (command === "add") {
-			// Add the comic to the fav list
-			const temp = [...favComics];
-			temp.push(comic);
+		if (token) {
+			if (command === "add") {
+				// Add the comic to the fav list
+				const temp = [...favComics];
+				temp.push(comic);
 
-			// Replace the comics fav list for user in DDB
-			//with the new one
-			try {
-				const response = await axios.put(
-					import.meta.env.VITE_BACK + "/user/fav",
-					{
-						favComics: temp,
-						token: token,
+				// Replace the comics fav list for user in DDB
+				//with the new one
+				try {
+					const response = await axios.put(
+						import.meta.env.VITE_BACK + "/user/fav",
+						{
+							favComics: temp,
+							token: token,
+						}
+					);
+					setFavComics(temp);
+					setIsFav(true);
+				} catch (error) {
+					console.error(error.response.data.message);
+				}
+			} else {
+				// Remove the comic from the fav list
+				const temp = [...favComics];
+				for (let i = 0; i < temp.length; i++) {
+					if (temp[i]._id === _id) {
+						temp.splice(i, 1);
 					}
-				);
-				setFavComics(temp);
-				setIsFav(true);
-			} catch (error) {
-				console.error(error.response.data.message);
-			}
-		} else {
-			// Remove the comic from the fav list
-			const temp = [...favComics];
-			for (let i = 0; i < temp.length; i++) {
-				if (temp[i]._id === _id) {
-					temp.splice(i, 1);
+				}
+
+				// Replace the comics fav list for user in DDB
+				//with the new one
+				try {
+					const response = await axios.put(
+						import.meta.env.VITE_BACK + "/user/fav",
+						{
+							favComics: temp,
+							token: token,
+						}
+					);
+					setFavComics(temp);
+					setIsFav(false);
+				} catch (error) {
+					console.error(error.response.data.message);
 				}
 			}
-
-			// Replace the comics fav list for user in DDB
-			//with the new one
-			try {
-				const response = await axios.put(
-					import.meta.env.VITE_BACK + "/user/fav",
-					{
-						favComics: temp,
-						token: token,
-					}
-				);
-				setFavComics(temp);
-				setIsFav(false);
-			} catch (error) {
-				console.error(error.response.data.message);
-			}
+		} else {
+			setIsModalLog(true);
 		}
 	};
 

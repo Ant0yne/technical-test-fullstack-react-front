@@ -9,7 +9,12 @@ import CharactersListDetail from "../CharactersListDetail";
 
 import "./charactersList.scss";
 
-const CharactersList = ({ token, favCharacters, setFavCharacters, url }) => {
+const CharactersList = ({
+	token,
+	favCharacters,
+	setFavCharacters,
+	setIsModalLog,
+}) => {
 	// data received by the request
 	const [data, setData] = useState();
 	// display a loading screen until data is received
@@ -64,6 +69,7 @@ const CharactersList = ({ token, favCharacters, setFavCharacters, url }) => {
 							token={token}
 							favCharacters={favCharacters}
 							setFavCharacters={setFavCharacters}
+							setIsModalLog={setIsModalLog}
 						/>
 					);
 				})}
