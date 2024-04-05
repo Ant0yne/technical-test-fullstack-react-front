@@ -45,6 +45,8 @@ function App() {
 					}
 				);
 
+				console.log(response.data);
+
 				const username = response.data.account.username;
 				const avatar = response.data.account.avatar.secure_url;
 
@@ -55,14 +57,17 @@ function App() {
 					username,
 					avatar,
 				});
-				// remove the loading screen
-				setIsLoading(false);
 			} catch (error) {
 				console.error(error.response.data.message);
 			}
 		};
 
-		fetchData();
+		if (token) {
+			console.log("test");
+			fetchData();
+		}
+		// remove the loading screen
+		setIsLoading(false);
 	}, [setFavComics, setIsLoading, setUser, token]);
 
 	return isLoading ? (
