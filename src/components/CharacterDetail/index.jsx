@@ -134,6 +134,7 @@ const CharacterDetail = ({
 							token={token}
 							favComics={favComics}
 							setFavComics={setFavComics}
+							setIsModalLog={setIsModalLog}
 						/>
 					);
 				})}

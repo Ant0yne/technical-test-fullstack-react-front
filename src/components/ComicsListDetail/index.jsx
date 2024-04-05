@@ -20,7 +20,7 @@ const ComicsListDetail = ({
 		for (const favComic of favComics) {
 			_id === favComic._id ? setIsFav(true) : setIsFav(false);
 		}
-	}, [setIsFav]);
+	}, [setIsFav, _id, favComics]);
 
 	const handleFav = async (command) => {
 		if (token) {
