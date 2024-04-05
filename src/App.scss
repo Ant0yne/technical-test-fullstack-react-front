@@ -48,6 +48,10 @@ span {
 	font-weight: bold;
 }
 
+.rc-pagination-item-active a {
+	color: rgb(255, 0, 0);
+}
+
 .container {
 	// padding: 0 $sml-pa;
 }

@@ -16,6 +16,7 @@ const CharacterDetail = ({
 	favComics,
 	setFavComics,
 	setIsModalLog,
+	url,
 }) => {
 	// data received by the request
 	const [data, setData] = useState();
@@ -104,7 +105,7 @@ const CharacterDetail = ({
 	) : (
 		<section id="character-detail">
 			{/* Return to search with queries conserved */}
-			<Link to="/characters">
+			<Link to={url ? url : "/characters"}>
 				<button>Return to Search</button>
 			</Link>
 			<div>
@@ -135,6 +136,8 @@ const CharacterDetail = ({
 							favComics={favComics}
 							setFavComics={setFavComics}
 							setIsModalLog={setIsModalLog}
+							characterId={characterId}
+							url={url}
 						/>
 					);
 				})}

@@ -10,6 +10,8 @@ const ComicsListDetail = ({
 	favComics,
 	setFavComics,
 	setIsModalLog,
+	url,
+	characterId,
 }) => {
 	// All the comic info
 	const { thumbnail, _id, title, description } = comic;
@@ -79,7 +81,7 @@ const ComicsListDetail = ({
 
 	return (
 		<div className="comic-list-detail">
-			<Link to={link}>
+			<Link to={link} state={{ url: url, characterId: characterId }}>
 				<img
 					src={thumbnail.path + "/portrait_small." + thumbnail.extension}
 					alt=""

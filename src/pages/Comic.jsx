@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 // COMPONENTS
 import Header from "../components/Header";
@@ -17,6 +17,7 @@ const Comic = ({
 }) => {
 	// Retreive the id in params
 	const { comicId } = useParams();
+	const { state } = useLocation();
 
 	return (
 		<>
@@ -35,6 +36,8 @@ const Comic = ({
 					favComics={favComics}
 					setFavComics={setFavComics}
 					setIsModalLog={setIsModalLog}
+					url={state.url}
+					characterId={state.characterId}
 				/>
 			</main>
 			<Footer />

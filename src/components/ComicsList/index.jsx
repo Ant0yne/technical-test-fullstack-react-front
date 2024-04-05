@@ -19,8 +19,11 @@ const ComicsList = ({ token, favComics, setFavComics, setIsModalLog }) => {
 	const [limit, setLimit] = useState(queries.get("limit") || 100);
 	const [skip, setSkip] = useState(queries.get("skip") || 0);
 	const [title, setTitle] = useState(queries.get("title") || "");
+	// To save all the queries when changing pages
+	const [url, setUrl] = useState("");
 
 	useEffect(() => {
+		setUrl(`/comics?title=${title}&limit=${limit}&skip=${skip}`);
 		const fetchData = async () => {
 			try {
 				const response = await axios.get(
@@ -39,7 +42,7 @@ const ComicsList = ({ token, favComics, setFavComics, setIsModalLog }) => {
 		};
 
 		fetchData();
-	}, [setData, setIsLoading, title, skip, limit]);
+	}, [setData, setIsLoading, title, skip, limit, setUrl]);
 
 	return isLoading ? (
 		<Loading />
@@ -64,6 +67,7 @@ const ComicsList = ({ token, favComics, setFavComics, setIsModalLog }) => {
 							favComics={favComics}
 							setFavComics={setFavComics}
 							setIsModalLog={setIsModalLog}
+							url={url}
 						/>
 					);
 				})}

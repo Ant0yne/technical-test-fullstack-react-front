@@ -10,6 +10,7 @@ const CharactersListDetail = ({
 	favCharacters,
 	setFavCharacters,
 	setIsModalLog,
+	url,
 }) => {
 	const { _id, thumbnail, comics, name, description } = character;
 	// Check if comic is fav for user
@@ -76,7 +77,7 @@ const CharactersListDetail = ({
 	const link = "/comics/" + _id;
 	return (
 		<div className="comic-list-detail">
-			<Link to={link}>
+			<Link to={link} state={{ url: url }}>
 				<img
 					src={thumbnail.path + "/portrait_small." + thumbnail.extension}
 					alt=""

@@ -25,9 +25,12 @@ const CharactersList = ({
 	const [limit, setLimit] = useState(queries.get("limit") || 100);
 	const [skip, setSkip] = useState(queries.get("skip") || 0);
 	const [name, setName] = useState(queries.get("name") || "");
+	// To save all the queries when changing pages
+	const [url, setUrl] = useState("");
 
 	useEffect(() => {
 		const fetchData = async () => {
+			setUrl(`/characters?name=${name}&limit=${limit}&skip=${skip}`);
 			try {
 				const response = await axios.get(
 					`${
@@ -45,7 +48,7 @@ const CharactersList = ({
 		};
 
 		fetchData();
-	}, [setData, setIsLoading, name, skip, limit]);
+	}, [setData, setIsLoading, name, skip, limit, setUrl]);
 
 	return isLoading ? (
 		<Loading />
@@ -70,6 +73,7 @@ const CharactersList = ({
 							favCharacters={favCharacters}
 							setFavCharacters={setFavCharacters}
 							setIsModalLog={setIsModalLog}
+							url={url}
 						/>
 					);
 				})}
