@@ -45,8 +45,13 @@ const Profile = ({
 			/>
 			<main>
 				<ProfileInfo {...user} />
-				<ProfileFavComics favComics={favComics} setFavComics={setFavComics} />
+				<ProfileFavComics
+					token={token}
+					favComics={favComics}
+					setFavComics={setFavComics}
+				/>
 				<ProfileFavCharac
+					token={token}
 					favCharacters={favCharacters}
 					setFavCharacters={setFavCharacters}
 				/>
