@@ -38,6 +38,7 @@ const Character = ({
 					setFavCharacters={setFavCharacters}
 					favComics={favComics}
 					setFavComics={setFavComics}
+					setIsModalLog={setIsModalLog}
 				/>
 			</main>
 			<Footer />

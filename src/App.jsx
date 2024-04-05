@@ -45,8 +45,6 @@ function App() {
 					}
 				);
 
-				console.log(response.data);
-
 				const username = response.data.account.username;
 				const avatar = response.data.account.avatar.secure_url;
 
@@ -63,7 +61,6 @@ function App() {
 		};
 
 		if (token) {
-			console.log("test");
 			fetchData();
 		}
 		// remove the loading screen

@@ -34,6 +34,7 @@ const Comic = ({
 					token={token}
 					favComics={favComics}
 					setFavComics={setFavComics}
+					setIsModalLog={setIsModalLog}
 				/>
 			</main>
 			<Footer />
