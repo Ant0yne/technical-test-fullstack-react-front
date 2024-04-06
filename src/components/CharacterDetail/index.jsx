@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // COMPONENTS
 import Loading from "../Loading";
@@ -104,44 +105,56 @@ const CharacterDetail = ({
 		<Loading />
 	) : (
 		<section id="character-detail">
-			{/* Return to search with queries conserved */}
-			<Link to={url ? url : "/characters"}>
-				<button>Return to Search</button>
-			</Link>
-			<div>
-				<img
-					src={
-						data.thumbnail.path +
-						"/portrait_uncanny." +
-						data.thumbnail.extension
-					}
-					alt={data.name}
-				/>
-				{isFav ? (
-					<button onClick={() => handleFav("remove")}>
-						Remove from Favorite
+			<div className="container">
+				{/* Return to search with queries conserved */}
+				<Link to={url ? url : "/characters"}>
+					<button>
+						<FontAwesomeIcon icon="fa-solid fa-arrow-left" /> Return to Search
 					</button>
-				) : (
-					<button onClick={() => handleFav("add")}>Add to Favorite</button>
-				)}
+				</Link>
+				<div>
+					<img
+						src={
+							data.thumbnail.path +
+							"/portrait_uncanny." +
+							data.thumbnail.extension
+						}
+						alt={data.name}
+					/>
+					<h3>{data.name}</h3>
+					<p>{data.description}</p>
+				</div>
+				<aside>
+					{isFav ? (
+						<button
+							onClick={() => handleFav("remove")}
+							className="remove-button-fav">
+							Remove from Favorite
+						</button>
+					) : (
+						<button onClick={() => handleFav("add")} className="add-button-fav">
+							Add to Favorite
+						</button>
+					)}
+				</aside>
+				<h4>Apparait dans :</h4>
+				<nav>
+					{data.comics.map((comic) => {
+						return (
+							<ComicsListDetail
+								key={comic._id}
+								comic={comic}
+								token={token}
+								favComics={favComics}
+								setFavComics={setFavComics}
+								setIsModalLog={setIsModalLog}
+								characterId={characterId}
+								url={url}
+							/>
+						);
+					})}
+				</nav>
 			</div>
-			<aside>
-				<p>Apparait dans :</p>
-				{data.comics.map((comic) => {
-					return (
-						<ComicsListDetail
-							key={comic._id}
-							comic={comic}
-							token={token}
-							favComics={favComics}
-							setFavComics={setFavComics}
-							setIsModalLog={setIsModalLog}
-							characterId={characterId}
-							url={url}
-						/>
-					);
-				})}
-			</aside>
 		</section>
 	);
 };

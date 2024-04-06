@@ -202,6 +202,25 @@
 
 // COMIC/CHARACTER ------------------------------------------------
 
+%infoDetail {
+	padding: 8px;
+	background-color: $white;
+	img {
+		width: 100%;
+		border: 2px solid $black;
+	}
+
+	p {
+		color: $black;
+		text-align: justify;
+		margin: 15px 0;
+	}
+
+	button {
+		margin: 10px 0 15px 0;
+	}
+}
+
 %bigButtonFav {
 	padding: 10px 10px;
 	border-radius: 5px;

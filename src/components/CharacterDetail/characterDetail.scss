@@ -1,0 +1,133 @@
+@import "../../scss/variables";
+@import "../../scss/placeholders";
+@import "../../scss/mixins";
+
+#character-detail {
+	@extend %infoDetail;
+	aside {
+		@include displayFlex;
+	}
+
+	nav {
+		@include displayFlex;
+		flex-wrap: wrap;
+		gap: 10px;
+
+		.comic-list-detail {
+			@include grid;
+
+			button {
+				right: -10px;
+				top: -24px;
+			}
+
+			img {
+				border: none;
+			}
+
+			p {
+				text-align: center;
+			}
+		}
+	}
+}
+
+.remove-button-fav {
+	@extend %bigButtonFav;
+	background-color: $redMarv;
+	color: $white;
+}
+
+.add-button-fav {
+	@extend %bigButtonFav;
+	background-color: $yellowMarv;
+}
+
+//  ----------------- 576px -----------------
+
+@media (min-width: 576px) {
+	#character-detail {
+		.container {
+			div {
+				@include displayFlex($direction: column);
+			}
+		}
+
+		img {
+			width: 576px;
+		}
+
+		h3 {
+			margin: 20px 0;
+			font-size: 2.5rem;
+		}
+
+		nav {
+			.comic-list-detail {
+				@include grid($number: 2);
+
+				a {
+					width: 100%;
+					height: 100%;
+				}
+
+				img {
+					border: none;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+//  ----------------- 768 px -----------------
+
+@media (min-width: 768px) {
+	#character-detail {
+		nav {
+			.comic-list-detail {
+				@include grid($number: 3);
+			}
+		}
+	}
+}
+
+//  ----------------- 992 px -----------------
+
+@media (min-width: 992px) {
+	#character-detail {
+		button {
+			font-size: 2rem;
+		}
+
+		nav {
+			.comic-list-detail {
+				@include grid($number: 4);
+			}
+		}
+	}
+}
+
+//  ----------------- 1200 px -----------------
+
+@media (min-width: 1200px) {
+	#character-detail {
+		nav {
+			.comic-list-detail {
+				@include grid($number: 5);
+			}
+		}
+	}
+}
+
+//  ----------------- 1400 px -----------------
+
+@media (min-width: 1400px) {
+	#character-detail {
+		nav {
+			.comic-list-detail {
+				@include grid($number: 6);
+			}
+		}
+	}
+}
