@@ -4,3 +4,7 @@
 	align-items: $align;
 	justify-content: $justify;
 }
+
+@mixin grid($number: 1) {
+	width: calc((100% - ($sml-px * $number)) / ($number + 1));
+}

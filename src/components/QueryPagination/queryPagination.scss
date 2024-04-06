@@ -1,12 +1,42 @@
+@import "../../scss/variables";
+@import "../../scss/placeholders";
+@import "../../scss/mixins";
+
+#pagination {
+	@include displayFlex($direction: column, $align: end);
+	gap: 8px;
+	margin: 10px 0;
+
+	div {
+		font-family: $RobotoC;
+		font-size: 1.2rem;
+	}
+}
+
 .rc-pagination {
-	display: flex;
-	gap: 10px;
+	@include displayFlex;
+	flex-wrap: wrap;
+	gap: 20px;
+
+	a {
+		font-family: $RobotoC;
+		font-size: 1.6rem;
+	}
+
 	button {
 		width: 10px;
 		height: 20px;
+		background-color: $white;
 	}
 }
 
 .rc-pagination-item-active a {
-	color: rgb(255, 0, 0);
+	@extend %red;
+}
+
+#skip-select {
+	width: 180px;
+	font-family: $Roboto;
+	text-align: center;
+	font-size: 1.5rem;
 }

@@ -94,7 +94,7 @@ const LogIn = ({
 					<div className="password-div">
 						<input
 							className="typing-modal"
-							type="password"
+							type={isPwVisible ? "text" : "password"}
 							name="passwordLogin"
 							id="passwordLogin"
 							placeholder="Mot de passe"

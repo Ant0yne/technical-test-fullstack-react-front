@@ -24,12 +24,14 @@ const Comics = ({
 				setRedirect={setRedirect}
 			/>
 			<main>
-				<ComicsList
-					token={token}
-					favComics={favComics}
-					setFavComics={setFavComics}
-					setIsModalLog={setIsModalLog}
-				/>
+				<div className="container">
+					<ComicsList
+						token={token}
+						favComics={favComics}
+						setFavComics={setFavComics}
+						setIsModalLog={setIsModalLog}
+					/>
+				</div>
 			</main>
 			<Footer />
 		</>

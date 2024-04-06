@@ -1,0 +1,14 @@
+@import "../../scss/variables";
+@import "../../scss/placeholders";
+@import "../../scss/mixins";
+
+#hero {
+	input {
+		background-color: $white;
+		color: $black;
+
+		&::placeholder {
+			color: $black;
+		}
+	}
+}

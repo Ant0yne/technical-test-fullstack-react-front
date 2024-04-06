@@ -16,9 +16,14 @@ import NotFound from "./pages/NotFound";
 import "./App.scss";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
-import { faEye as faEyeR } from "@fortawesome/free-regular-svg-icons";
-library.add(faEye, faEyeR);
+import {
+	faEye as fasEye,
+	faArrowLeft as fasArrowLeft,
+	faArrowRight as fasArrowRight,
+	faEllipsis as fasEllipsis,
+} from "@fortawesome/free-solid-svg-icons";
+import { faEye as farEye } from "@fortawesome/free-regular-svg-icons";
+library.add(fasEye, farEye, fasArrowLeft, fasArrowRight, fasEllipsis);
 
 function App() {
 	// Check if there is a cookie "token"

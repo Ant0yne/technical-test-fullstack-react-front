@@ -5,7 +5,7 @@ import "./hero.scss";
 
 const Hero = ({ limit, setLimit, skip, setSkip, search, setSearch, count }) => {
 	return (
-		<section>
+		<section id="hero">
 			<form
 				onSubmit={(e) => {
 					e.preventDefault();

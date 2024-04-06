@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import "./comicsListDetail.scss";
+import favIcon from "../../assets/fav.png";
+import favIconNB from "../../assets/favNB.png";
 
 const ComicsListDetail = ({
 	comic,
@@ -19,9 +21,16 @@ const ComicsListDetail = ({
 	const [isFav, setIsFav] = useState(false);
 
 	useEffect(() => {
-		for (const favComic of favComics) {
-			_id === favComic._id ? setIsFav(true) : setIsFav(false);
+		// console.log(favComics);
+		for (let favComic of favComics) {
+			console.log("comic", _id);
+			console.log("fav", favComic._id);
+			if (_id === favComic._id) {
+				console.log("test", _id);
+				return setIsFav(true);
+			}
 		}
+		return setIsFav(false);
 	}, [setIsFav, _id, favComics]);
 
 	const handleFav = async (command) => {
@@ -83,19 +92,19 @@ const ComicsListDetail = ({
 		<div className="comic-list-detail">
 			<Link to={link} state={{ url: url, characterId: characterId }}>
 				<img
-					src={thumbnail.path + "/portrait_small." + thumbnail.extension}
+					src={thumbnail.path + "/portrait_incredible." + thumbnail.extension}
 					alt={title}
 				/>
-				{/* <p>{_id}</p>
-				<p>{title}</p>
-			<p>{description}</p> */}
+				<p>{title.length > 25 ? title.slice(0, 22) + "..." : title}</p>
 			</Link>
 			{isFav ? (
-				<button onClick={() => handleFav("remove")}>
-					Remove from Favorite
+				<button className="button-fav" onClick={() => handleFav("remove")}>
+					<img src={favIcon} alt="remove comic from favorite list" />
 				</button>
 			) : (
-				<button onClick={() => handleFav("add")}>Add to Favorite</button>
+				<button className="button-fav" onClick={() => handleFav("add")}>
+					<img src={favIconNB} alt="add comic to favorite list" />
+				</button>
 			)}
 		</div>
 	);

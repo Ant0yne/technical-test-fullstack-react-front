@@ -1,0 +1,11 @@
+@import "../../scss/variables";
+@import "../../scss/placeholders";
+@import "../../scss/mixins";
+
+#comics-list {
+	@include displayFlex;
+	flex-wrap: wrap;
+	background-color: $white;
+	padding: 10px;
+	gap: $sml-px;
+}
