@@ -1,0 +1,54 @@
+@import "../../scss/variables";
+@import "../../scss/placeholders";
+@import "../../scss/mixins";
+
+#login {
+	@extend %signLog;
+}
+
+#login-modal {
+	@extend %signLogModal;
+	@include displayFlex($direction: column, $justify: flex-start);
+	padding-left: 50px;
+	padding-right: 50px;
+
+	.close-modal {
+		@extend %closeModal;
+	}
+
+	form {
+		@include displayFlex($direction: column);
+		gap: $sml-px;
+		width: 100%;
+	}
+
+	button {
+		@extend %switchModal;
+	}
+}
+
+input {
+	@extend %inputModal;
+}
+
+input[type="submit"] {
+	@extend %submitModal;
+}
+
+.error-visible {
+	@extend %errorModal;
+}
+
+.error-not-visible {
+	visibility: hidden;
+}
+
+//  ----------------- 576px -----------------
+
+@media (min-width: 576px) {
+	#login-modal {
+		form {
+			gap: 20px;
+		}
+	}
+}

@@ -3,33 +3,15 @@
 @import "../../scss/mixins";
 
 #signup {
-	height: 100vh;
-	width: 100vw;
-	position: fixed;
-	z-index: 1;
-	background-color: $bgModal;
+	@extend %signLog;
 }
 
 #signup-modal {
-	position: relative;
-	background-color: $blueMarv;
-	height: 100%;
-	padding: 35px 10px 10px 10px;
+	@extend %signLogModal;
 	@include displayFlex($direction: column, $justify: flex-start);
 
 	.close-modal {
-		position: absolute;
-		right: 25px;
-		top: 13px;
-		font-size: 2rem;
-		color: $white;
-		padding: 0;
-		font-family: $Roboto;
-		font-weight: normal;
-
-		&:hover {
-			color: $redMarv;
-		}
+		@extend %closeModal;
 	}
 
 	form {
@@ -38,51 +20,23 @@
 	}
 
 	button {
-		font-size: 1.3rem;
-		padding: 10px 0;
-
-		span {
-			text-decoration: underline;
-		}
-
-		&:hover {
-			text-decoration: underline;
-		}
+		@extend %switchModal;
 	}
 }
 
 input {
-	background: none;
-	color: $white;
-	padding: $sml-px 5px;
-	font-family: $RobotoC;
-	border: none;
-	border-bottom: 1px solid $yellowMarv;
-	width: 100%;
-
-	&::placeholder {
-		color: $white;
-		opacity: 0.7;
-	}
+	@extend %inputModal;
 }
 
 input[type="submit"] {
-	background-color: $yellowMarv;
-	border-radius: 5px;
-	color: $black;
-	font-weight: bold;
-	font-size: 1.8rem;
-	margin-top: 5px;
+	@extend %submitModal;
 }
 
 .error-visible {
-	color: $redMarv;
-	font-weight: bold;
-	font-size: 1.8rem;
-	text-shadow: 1px 1px 0px $black;
+	@extend %errorModal;
 }
 
-.error-signup {
+.error-not-visible {
 	visibility: hidden;
 }
 
@@ -90,25 +44,8 @@ input[type="submit"] {
 
 @media (min-width: 576px) {
 	#signup-modal {
-		width: 576px;
-		margin: 50px auto;
-		border-radius: 5px;
-		height: 600px;
-
-		.close-modal {
-			font-size: 2.5rem;
-		}
-
 		form {
 			gap: 20px;
 		}
-
-		button {
-			padding: 20px;
-		}
-	}
-
-	input[type="submit"] {
-		margin-top: 15px;
 	}
 }

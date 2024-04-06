@@ -15,9 +15,7 @@ const LogIn = ({
 	// state for all the input values
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [isError, setIsError] = useState(
-		"This is a placeholder to prevent the layout to move"
-	);
+	const [isError, setIsError] = useState("This is a placeholder");
 
 	const navigate = useNavigate();
 
@@ -28,7 +26,7 @@ const LogIn = ({
 	 *  function when subimitting the form
 	 */
 	const sendData = async (e) => {
-		setIsError("This is a placeholder to prevent the layout to move");
+		setIsError("This is a placeholder");
 		e.preventDefault();
 
 		try {
@@ -55,6 +53,7 @@ const LogIn = ({
 			setIsError(error.response.data.message);
 		}
 	};
+
 	return (
 		<section
 			id="login"
@@ -76,9 +75,9 @@ const LogIn = ({
 					{/* The error from the request to display */}
 					<span
 						className={
-							isError !== "This is a placeholder to prevent the layout to move"
-								? ""
-								: "errorSignup"
+							isError !== "This is a placeholder"
+								? "error-visible"
+								: "error-not-visible"
 						}>
 						{isError}
 					</span>
@@ -114,7 +113,7 @@ const LogIn = ({
 						setIsModalLog(false);
 						setIsModalSign(true);
 					}}>
-					Pas encore de compte ? Inscris-toi !
+					Pas encore de compte ? <span>Inscris-toi !</span>
 				</button>
 			</div>
 		</section>
