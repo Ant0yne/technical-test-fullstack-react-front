@@ -116,7 +116,7 @@ const ComicDetail = ({
 						"/portrait_uncanny." +
 						data.thumbnail.extension
 					}
-					alt=""
+					alt={data.title}
 				/>
 			</div>
 			{isFav ? (

@@ -44,7 +44,7 @@ const ProfileFavComics = ({ token, favComics, setFavComics }) => {
 									"/portrait_small." +
 									fav.thumbnail.extension
 								}
-								alt=""
+								alt={fav.title}
 							/>
 							{/* <p>{_id}</p>
 				<p>{title}</p>

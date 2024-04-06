@@ -84,7 +84,7 @@ const ComicsListDetail = ({
 			<Link to={link} state={{ url: url, characterId: characterId }}>
 				<img
 					src={thumbnail.path + "/portrait_small." + thumbnail.extension}
-					alt=""
+					alt={title}
 				/>
 				{/* <p>{_id}</p>
 				<p>{title}</p>

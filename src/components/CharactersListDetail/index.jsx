@@ -80,7 +80,7 @@ const CharactersListDetail = ({
 			<Link to={link} state={{ url: url }}>
 				<img
 					src={thumbnail.path + "/portrait_small." + thumbnail.extension}
-					alt=""
+					alt={name}
 				/>
 			</Link>
 			{isFav ? (

@@ -58,7 +58,7 @@ const Header = ({
 				<div className="container">
 					<div>
 						<Link to="/">
-							<img src={marvelLogo} alt="" />
+							<img src={marvelLogo} alt="Logo Marvel" />
 						</Link>
 					</div>
 					{token ? (

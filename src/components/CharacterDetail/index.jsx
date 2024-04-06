@@ -115,7 +115,7 @@ const CharacterDetail = ({
 						"/portrait_uncanny." +
 						data.thumbnail.extension
 					}
-					alt=""
+					alt={data.name}
 				/>
 				{isFav ? (
 					<button onClick={() => handleFav("remove")}>

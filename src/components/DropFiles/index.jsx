@@ -29,7 +29,7 @@ const DropFiles = ({ file, setFile }) => {
 				{file && (
 					<img
 						src={URL.createObjectURL(file)}
-						alt=""
+						alt="The avatar you uploaded"
 						className="img-file-dropzone"
 						key={file.path}
 					/>

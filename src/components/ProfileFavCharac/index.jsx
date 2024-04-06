@@ -44,7 +44,7 @@ const ProfileFavCharac = ({ token, favCharacters, setFavCharacters }) => {
 									"/portrait_small." +
 									fav.thumbnail.extension
 								}
-								alt=""
+								alt={fav.name}
 							/>
 							{/* <p>{_id}</p>
 				<p>{title}</p>
