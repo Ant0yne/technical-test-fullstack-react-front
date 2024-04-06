@@ -158,4 +158,8 @@
 	padding: 10px 10px;
 	border-radius: 5px;
 	width: 100%;
+
+	@media (min-width: 576px) {
+		width: 576px;
+	}
 }

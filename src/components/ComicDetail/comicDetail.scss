@@ -19,6 +19,10 @@
 	button {
 		margin: 10px 0 15px 0;
 	}
+
+	aside {
+		@include displayFlex;
+	}
 }
 
 .remove-button-fav {
@@ -30,4 +34,42 @@
 .add-button-fav {
 	@extend %bigButtonFav;
 	background-color: $yellowMarv;
+}
+
+//  ----------------- 576px -----------------
+
+@media (min-width: 576px) {
+	#comic-detail {
+		.container {
+			div {
+				@include displayFlex($direction: column);
+			}
+		}
+
+		img {
+			width: 576px;
+		}
+
+		h3 {
+			margin: 20px 0;
+			font-size: 2.5rem;
+		}
+	}
+}
+
+//  ----------------- 992 px -----------------
+
+@media (min-width: 992px) {
+	#comic-detail {
+		button {
+			font-size: 2rem;
+		}
+	}
+}
+
+//  ----------------- 1400 px -----------------
+
+@media (min-width: 1400px) {
+	#comic-detail {
+	}
 }

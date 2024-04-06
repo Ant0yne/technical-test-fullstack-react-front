@@ -106,37 +106,41 @@ const ComicDetail = ({
 		<Loading />
 	) : (
 		<section id="comic-detail">
-			{/* Return to search with queries conserved */}
-			<Link
-				state={{ url: url }}
-				to={characterId ? "/comics/" + characterId : url}>
-				<button>
-					<FontAwesomeIcon icon="fa-solid fa-arrow-left" /> Return to Search
-				</button>
-			</Link>
-			<div>
-				<img
-					src={
-						data.thumbnail.path +
-						"/portrait_uncanny." +
-						data.thumbnail.extension
-					}
-					alt={data.title}
-				/>
-				<h3>{data.title}</h3>
-				<p>{data.description}</p>
+			<div className="container">
+				{/* Return to search with queries conserved */}
+				<Link
+					state={{ url: url }}
+					to={characterId ? "/comics/" + characterId : url}>
+					<button>
+						<FontAwesomeIcon icon="fa-solid fa-arrow-left" /> Return to Search
+					</button>
+				</Link>
+				<div>
+					<img
+						src={
+							data.thumbnail.path +
+							"/portrait_uncanny." +
+							data.thumbnail.extension
+						}
+						alt={data.title}
+					/>
+					<h3>{data.title}</h3>
+					<p>{data.description}</p>
+				</div>
+				<aside>
+					{isFav ? (
+						<button
+							onClick={() => handleFav("remove")}
+							className="remove-button-fav">
+							Remove from Favorite
+						</button>
+					) : (
+						<button onClick={() => handleFav("add")} className="add-button-fav">
+							Add to Favorite
+						</button>
+					)}
+				</aside>
 			</div>
-			{isFav ? (
-				<button
-					onClick={() => handleFav("remove")}
-					className="remove-button-fav">
-					Remove from Favorite
-				</button>
-			) : (
-				<button onClick={() => handleFav("add")} className="add-button-fav">
-					Add to Favorite
-				</button>
-			)}
 		</section>
 	);
 };
