@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useState } from "react";
@@ -16,6 +17,8 @@ const LogIn = ({
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [isError, setIsError] = useState("This is a placeholder");
+	// To make the password visible
+	const [isPwVisible, setIsPwVisible] = useState(false);
 
 	const navigate = useNavigate();
 
@@ -54,15 +57,16 @@ const LogIn = ({
 		}
 	};
 
+	const handleClose = () => {
+		setIsError("This is a placeholder");
+		setIsModalLog(false);
+		setRedirect("");
+	};
+
 	return (
-		<section id="login" onClick={() => setIsModalLog(false)}>
+		<section id="login" onClick={handleClose}>
 			<div id="login-modal" onClick={(e) => e.stopPropagation()}>
-				<button
-					onClick={() => {
-						setIsModalLog(false);
-						setRedirect("");
-					}}
-					className="close-modal">
+				<button onClick={handleClose} className="close-modal">
 					X
 				</button>
 				<form onSubmit={(e) => sendData(e)}>
@@ -87,15 +91,30 @@ const LogIn = ({
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 					/>
-					<input
-						className="typing-modal"
-						type="password"
-						name="passwordLogin"
-						id="passwordLogin"
-						placeholder="Mot de passe"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-					/>
+					<div className="password-div">
+						<input
+							className="typing-modal"
+							type="password"
+							name="passwordLogin"
+							id="passwordLogin"
+							placeholder="Mot de passe"
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+						/>
+						{isPwVisible ? (
+							<FontAwesomeIcon
+								onClick={() => setIsPwVisible(!isPwVisible)}
+								className="eye-password"
+								icon="fa-regular fa-eye"
+							/>
+						) : (
+							<FontAwesomeIcon
+								onClick={() => setIsPwVisible(!isPwVisible)}
+								className="eye-password"
+								icon="fa-solid fa-eye"
+							/>
+						)}
+					</div>
 					<input
 						type="submit"
 						name="submitLogin"
