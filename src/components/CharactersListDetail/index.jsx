@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import "./charactersListDetail.scss";
+import favIcon from "../../assets/fav.png";
+import favIconNB from "../../assets/favNB.png";
 
 const CharactersListDetail = ({
 	character,
@@ -76,19 +78,22 @@ const CharactersListDetail = ({
 
 	const link = "/comics/" + _id;
 	return (
-		<div className="comic-list-detail">
+		<div className="character-list-detail">
 			<Link to={link} state={{ url: url }}>
 				<img
-					src={thumbnail.path + "/portrait_small." + thumbnail.extension}
+					src={thumbnail.path + "/portrait_uncanny." + thumbnail.extension}
 					alt={name}
 				/>
+				<p>{name}</p>
 			</Link>
 			{isFav ? (
-				<button onClick={() => handleFav("remove")}>
-					Remove from Favorite
+				<button className="button-fav" onClick={() => handleFav("remove")}>
+					<img src={favIcon} alt="remove comic from favorite list" />
 				</button>
 			) : (
-				<button onClick={() => handleFav("add")}>Add to Favorite</button>
+				<button className="button-fav" onClick={() => handleFav("add")}>
+					<img src={favIconNB} alt="add comic to favorite list" />
+				</button>
 			)}
 		</div>
 	);

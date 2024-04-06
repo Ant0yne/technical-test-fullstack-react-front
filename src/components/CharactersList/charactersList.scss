@@ -1,0 +1,8 @@
+@import "../../scss/variables";
+@import "../../scss/placeholders";
+@import "../../scss/mixins";
+
+#characters-list {
+	@include displayFlex;
+	@extend %list;
+}

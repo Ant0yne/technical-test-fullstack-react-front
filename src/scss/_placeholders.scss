@@ -150,7 +150,55 @@
 	text-shadow: 1px 1px 0px $black;
 }
 
-// COMICS/CHARACTERS ---------------------------------------------
+// COMICS/CHARACTERS LIST ---------------------------------------------
+
+%list {
+	flex-wrap: wrap;
+	background-color: $white;
+	padding: 10px;
+	gap: $sml-px;
+}
+
+%listDetail {
+	position: relative;
+	text-align: center;
+	border: 2px solid $black;
+	height: 250px;
+}
+
+%detail {
+	img {
+		width: 100%;
+		object-fit: cover;
+		height: 75%;
+
+		&:hover {
+			-ms-transform: scale(1.01);
+			-webkit-transform: scale(1.01);
+			transform: scale(1.02);
+			border: 3px solid $yellowMarv;
+		}
+	}
+
+	p {
+		font-size: 1.2rem;
+		color: $black;
+		padding: 0 2px;
+	}
+}
+
+%buttonFav {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: -13px;
+	top: -13px;
+
+	img {
+		height: 50px;
+		width: 50px;
+	}
+}
 
 // COMIC/CHARACTER ------------------------------------------------
 

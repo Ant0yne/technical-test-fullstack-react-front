@@ -3,45 +3,16 @@
 @import "../../scss/mixins";
 
 .comic-list-detail {
-	position: relative;
-	text-align: center;
-	border: 2px solid $black;
-	height: 250px;
+	@extend %listDetail;
 	@include grid;
 
 	a {
-		img {
-			width: 100%;
-			object-fit: cover;
-			height: 75%;
-		}
-
-		p {
-			font-size: 1.2rem;
-			color: $black;
-			padding: 0 2px;
-		}
-	}
-
-	&:hover {
-		-ms-transform: scale(1.01);
-		-webkit-transform: scale(1.01);
-		transform: scale(1.02);
-		border: 3px solid $yellowMarv;
+		@extend %detail;
 	}
 }
 
 .button-fav {
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	right: -13px;
-	top: -13px;
-
-	img {
-		height: 50px;
-		width: 50px;
-	}
+	@extend %buttonFav;
 }
 
 //  ----------------- 576px -----------------
