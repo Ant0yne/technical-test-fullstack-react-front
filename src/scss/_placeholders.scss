@@ -15,4 +15,16 @@
 		-webkit-filter: grayscale(0%);
 		filter: grayscale(0%);
 	}
+
+	//  ----------------- 576px -----------------
+
+	@media (min-width: 576px) {
+		height: 48%;
+	}
+
+	//  ----------------- 1024 px -----------------
+
+	@media (min-width: 1024px) {
+		height: 47%;
+	}
 }

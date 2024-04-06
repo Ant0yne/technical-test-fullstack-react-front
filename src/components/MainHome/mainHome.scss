@@ -1,10 +1,11 @@
 @import "../../scss/variables";
 @import "../../scss/placeholders";
+@import "../../scss/mixins";
 
 #main-home {
-	background-color: $white;
 	height: calc(100vh - (60px + 45px));
 
+	background-color: $white;
 	.container {
 		height: 100%;
 		padding: $sml-px;
