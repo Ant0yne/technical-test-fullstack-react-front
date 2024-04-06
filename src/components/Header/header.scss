@@ -7,12 +7,13 @@ header {
 	background-color: $blueMarv;
 	z-index: 1;
 	position: sticky;
+	top: 0;
 	border-bottom: 2px solid $white;
 
 	.container {
 		height: 100%;
 		padding: 0 $sml-px;
-		@include displayFlex;
+		@include displayFlex($justify: space-between);
 	}
 }
 
@@ -32,12 +33,12 @@ header {
 	@include displayFlex;
 	button {
 		color: $yellowMarv;
-		text-decoration: underline;
 		text-underline-position: under;
 		margin: 0 $sml-px;
 
 		&:hover {
-			text-decoration: none;
+			text-decoration: underline;
+
 			opacity: 0.95;
 		}
 

@@ -28,3 +28,11 @@
 		height: 47%;
 	}
 }
+
+%avatar {
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	border: 1px solid $white;
+	object-fit: cover;
+}

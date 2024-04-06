@@ -13,9 +13,7 @@ const SignUp = ({ setIsModalSign, setIsModalLog, setToken }) => {
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [isError, setIsError] = useState(
-		"This is a placeholder to prevent the layout to move"
-	);
+	const [isError, setIsError] = useState("This is a placeholder");
 
 	/**
 	 *
@@ -25,7 +23,7 @@ const SignUp = ({ setIsModalSign, setIsModalLog, setToken }) => {
 	 *
 	 */
 	const sendData = async (e) => {
-		setIsError("This is a placeholder to prevent the layout to move");
+		setIsError("This is a placeholder");
 		e.preventDefault();
 
 		// Create the FormData to send
@@ -74,9 +72,9 @@ const SignUp = ({ setIsModalSign, setIsModalLog, setToken }) => {
 					{/* The error from the request to display */}
 					<span
 						className={
-							isError !== "This is a placeholder to prevent the layout to move"
-								? ""
-								: "errorSignup"
+							isError !== "This is a placeholder"
+								? "error-visible"
+								: "error-signup"
 						}>
 						{isError}
 					</span>
@@ -121,7 +119,7 @@ const SignUp = ({ setIsModalSign, setIsModalLog, setToken }) => {
 						setIsModalSign(false);
 						setIsModalLog(true);
 					}}>
-					Tu as déjà un compte ? Connecte-toi !
+					Tu as déjà un compte ? <span>Connecte-toi !</span>
 				</button>
 			</div>
 		</section>

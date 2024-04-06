@@ -1,0 +1,23 @@
+@import "../../scss/variables";
+@import "../../scss/placeholders";
+@import "../../scss/mixins";
+
+.dropzone {
+	border: 1px dashed $white;
+	height: 75px;
+	width: 100%;
+	margin-top: 20px;
+	text-align: center;
+	font-size: 1.4rem;
+	padding: $sml-px;
+}
+
+#signup {
+	aside {
+		@include displayFlex($justify: center);
+	}
+
+	img {
+		@extend %avatar;
+	}
+}
