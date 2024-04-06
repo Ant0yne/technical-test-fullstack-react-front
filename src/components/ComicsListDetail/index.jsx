@@ -21,12 +21,8 @@ const ComicsListDetail = ({
 	const [isFav, setIsFav] = useState(false);
 
 	useEffect(() => {
-		// console.log(favComics);
 		for (let favComic of favComics) {
-			console.log("comic", _id);
-			console.log("fav", favComic._id);
 			if (_id === favComic._id) {
-				console.log("test", _id);
 				return setIsFav(true);
 			}
 		}

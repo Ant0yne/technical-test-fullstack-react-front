@@ -1,0 +1,33 @@
+@import "../../scss/variables";
+@import "../../scss/placeholders";
+@import "../../scss/mixins";
+
+#comic-detail {
+	padding: 8px;
+	background-color: $white;
+	img {
+		width: 100%;
+		border: 2px solid $black;
+	}
+
+	p {
+		color: $black;
+		text-align: justify;
+		margin: 15px 0;
+	}
+
+	button {
+		margin: 10px 0 15px 0;
+	}
+}
+
+.remove-button-fav {
+	@extend %bigButtonFav;
+	background-color: $redMarv;
+	color: $white;
+}
+
+.add-button-fav {
+	@extend %bigButtonFav;
+	background-color: $yellowMarv;
+}

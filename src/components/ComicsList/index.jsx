@@ -60,7 +60,6 @@ const ComicsList = ({ token, favComics, setFavComics, setIsModalLog }) => {
 			/>
 			<section id="comics-list">
 				{data.results.map((comic) => {
-					console.log(favComics);
 					return (
 						<ComicsListDetail
 							key={comic._id}

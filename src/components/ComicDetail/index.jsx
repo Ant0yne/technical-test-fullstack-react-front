@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // COMPONENTS
 import Loading from "../Loading";
@@ -42,7 +43,9 @@ const ComicDetail = ({
 		fetchData();
 
 		for (const favComic of favComics) {
-			comicId === favComic._id ? setIsFav(true) : setIsFav(false);
+			if (comicId === favComic._id) {
+				setIsFav(true);
+			}
 		}
 	}, [setData, setIsLoading, comicId, favComics, setIsFav]);
 
@@ -107,7 +110,9 @@ const ComicDetail = ({
 			<Link
 				state={{ url: url }}
 				to={characterId ? "/comics/" + characterId : url}>
-				<button>Return to Search</button>
+				<button>
+					<FontAwesomeIcon icon="fa-solid fa-arrow-left" /> Return to Search
+				</button>
 			</Link>
 			<div>
 				<img
@@ -118,13 +123,19 @@ const ComicDetail = ({
 					}
 					alt={data.title}
 				/>
+				<h3>{data.title}</h3>
+				<p>{data.description}</p>
 			</div>
 			{isFav ? (
-				<button onClick={() => handleFav("remove")}>
+				<button
+					onClick={() => handleFav("remove")}
+					className="remove-button-fav">
 					Remove from Favorite
 				</button>
 			) : (
-				<button onClick={() => handleFav("add")}>Add to Favorite</button>
+				<button onClick={() => handleFav("add")} className="add-button-fav">
+					Add to Favorite
+				</button>
 			)}
 		</section>
 	);
