@@ -24,6 +24,13 @@ const ComicsList = ({ token, favComics, setFavComics, setIsModalLog }) => {
 
 	useEffect(() => {
 		setUrl(`/comics?title=${title}&limit=${limit}&skip=${skip}`);
+
+		console.log(
+			`${
+				import.meta.env.VITE_BACK
+			}/comics?title=${title}&limit=${limit}&skip=${skip}`
+		);
+
 		const fetchData = async () => {
 			try {
 				const response = await axios.get(
