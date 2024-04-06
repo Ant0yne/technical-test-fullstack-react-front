@@ -1,0 +1,18 @@
+%imgHome {
+	height: 49%;
+	border: 2px solid $black;
+	background-size: cover;
+	background-repeat: no-repeat;
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+
+	&:hover {
+		-webkit-filter: grayscale(0%);
+		filter: grayscale(0%);
+	}
+
+	@media (pointer: coarse) {
+		-webkit-filter: grayscale(0%);
+		filter: grayscale(0%);
+	}
+}

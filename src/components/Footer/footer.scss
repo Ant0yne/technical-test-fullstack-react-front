@@ -1,13 +1,22 @@
-@import "../../variables";
+@import "../../scss/variables";
+@import "../../scss/placeholders";
+@import "../../scss/mixins";
 
 footer {
+	height: 45px;
 	width: 100%;
 	text-align: center;
-	display: flex;
-	justify-content: center;
-	position: fixed;
 	bottom: 0;
-	padding: $sml-pa 0;
-	background-color: $bgBlack;
-	border: 1px solid red;
+	padding: $sml-px 0;
+	background-color: $blueMarv;
+	font-size: 1.2rem;
+	line-height: 18px;
+	border-top: 2px solid $white;
+
+	@include displayFlex($justify: center);
+
+	a,
+	span {
+		font-size: 1.2rem;
+	}
 }

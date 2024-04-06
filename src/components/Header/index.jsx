@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 // COMPONENTS
@@ -56,21 +56,25 @@ const Header = ({
 		<>
 			<header>
 				<div className="container">
-					<div>
-						<Link to="/">
+					<div id="header-logo">
+						<button onClick={() => navigate("/")}>
 							<img src={marvelLogo} alt="Logo Marvel" />
-						</Link>
+						</button>
 					</div>
 					{token ? (
-						<div>
+						<div className="header-button">
 							{!onProfilePage && (
-								<button onClick={() => navigate("/profile")}>Profile</button>
+								<>
+									<button onClick={() => navigate("/profile")}>Profile</button>
+									<aside></aside>
+								</>
 							)}
 							<button onClick={handleLogOut}>Log out</button>
 						</div>
 					) : (
-						<div>
+						<div className="header-button">
 							<button onClick={() => handleSignLog("log")}>Log In</button>{" "}
+							<aside></aside>
 							<button onClick={() => handleSignLog("sign")}>Sign Up</button>
 						</div>
 					)}

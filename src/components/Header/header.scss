@@ -1,16 +1,50 @@
-@import "../../variables";
+@import "../../scss/variables";
+@import "../../scss/placeholders";
+@import "../../scss/mixins";
 
 header {
-	background-color: $bgBlack;
+	height: 60px;
+	background-color: $blueMarv;
 	z-index: 1;
 	position: sticky;
+	border-bottom: 2px solid $white;
+
 	.container {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+		height: 100%;
+		padding: 0 $sml-px;
+		@include displayFlex;
+	}
+}
+
+#header-logo {
+	height: 100%;
+
+	button {
+		height: 100%;
+
+		img {
+			height: 100%;
+		}
+	}
+}
+
+.header-button {
+	@include displayFlex;
+	button {
+		color: $yellowMarv;
+		font-family: "Roboto Condensed", sans-serif;
+		text-decoration: underline;
+		text-underline-position: under;
+		margin: 0 $sml-px;
+
+		&:hover {
+			text-decoration: none;
+			color: $redMarv;
+		}
 	}
 
-	img {
-		height: 50px;
+	aside {
+		border: 1px solid $yellowMarv;
+		height: 30px;
 	}
 }
