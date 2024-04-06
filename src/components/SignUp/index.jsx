@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
@@ -14,6 +15,8 @@ const SignUp = ({ setIsModalSign, setIsModalLog, setToken }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [isError, setIsError] = useState("This is a placeholder");
+	// To make the password visible
+	const [isPwVisible, setIsPwVisible] = useState(false);
 
 	/**
 	 *
@@ -50,18 +53,15 @@ const SignUp = ({ setIsModalSign, setIsModalLog, setToken }) => {
 		}
 	};
 
+	const handleClose = () => {
+		setIsError("This is a placeholder");
+		setIsModalSign(false);
+	};
+
 	return (
-		<section
-			id="signup"
-			onClick={() => {
-				setIsModalSign(false);
-			}}>
+		<section id="signup" onClick={handleClose}>
 			<div id="signup-modal" onClick={(e) => e.stopPropagation()}>
-				<button
-					onClick={() => {
-						setIsModalSign(false);
-					}}
-					className="close-modal">
+				<button onClick={handleClose} className="close-modal">
 					X
 				</button>
 				<form onSubmit={(e) => sendData(e)}>
@@ -74,7 +74,7 @@ const SignUp = ({ setIsModalSign, setIsModalLog, setToken }) => {
 						className={
 							isError !== "This is a placeholder"
 								? "error-visible"
-								: "error-signup"
+								: "error-not-visible"
 						}>
 						{isError}
 					</span>
@@ -97,15 +97,31 @@ const SignUp = ({ setIsModalSign, setIsModalLog, setToken }) => {
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 					/>
-					<input
-						className="typing-modal"
-						type="password"
-						name="passwordSignup"
-						id="passwordSignup"
-						placeholder="Mot de passe"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-					/>
+					<div className="password-div">
+						<input
+							className="typing-modal"
+							type={isPwVisible ? "text" : "password"}
+							name="passwordSignup"
+							id="passwordSignup"
+							placeholder="Mot de passe"
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+						/>
+
+						{isPwVisible ? (
+							<FontAwesomeIcon
+								onClick={() => setIsPwVisible(!isPwVisible)}
+								className="eye-password"
+								icon="fa-regular fa-eye"
+							/>
+						) : (
+							<FontAwesomeIcon
+								onClick={() => setIsPwVisible(!isPwVisible)}
+								className="eye-password"
+								icon="fa-solid fa-eye"
+							/>
+						)}
+					</div>
 					<input
 						type="submit"
 						name="submitSignup"

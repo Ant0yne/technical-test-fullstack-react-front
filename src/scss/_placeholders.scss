@@ -123,6 +123,17 @@
 	}
 }
 
+%eyeModal {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	color: $white;
+
+	svg {
+		font-size: 1.6rem;
+	}
+}
+
 %errorModal {
 	color: $redMarv;
 	font-weight: bold;

@@ -32,6 +32,14 @@ input[type="submit"] {
 	@extend %submitModal;
 }
 
+.password-div {
+	position: relative;
+	width: 100%;
+	.eye-password {
+		@extend %eyeModal;
+	}
+}
+
 .error-visible {
 	@extend %errorModal;
 }

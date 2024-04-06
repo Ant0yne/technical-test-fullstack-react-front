@@ -15,6 +15,11 @@ import NotFound from "./pages/NotFound";
 
 import "./App.scss";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEye as faEyeR } from "@fortawesome/free-regular-svg-icons";
+library.add(faEye, faEyeR);
+
 function App() {
 	// Check if there is a cookie "token"
 	// if not, init token with ""

@@ -55,11 +55,7 @@ const LogIn = ({
 	};
 
 	return (
-		<section
-			id="login"
-			onClick={() => {
-				setIsModalLog(false);
-			}}>
+		<section id="login" onClick={() => setIsModalLog(false)}>
 			<div id="login-modal" onClick={(e) => e.stopPropagation()}>
 				<button
 					onClick={() => {
