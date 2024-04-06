@@ -32,14 +32,25 @@ header {
 	@include displayFlex;
 	button {
 		color: $yellowMarv;
-		font-family: "Roboto Condensed", sans-serif;
 		text-decoration: underline;
 		text-underline-position: under;
 		margin: 0 $sml-px;
 
 		&:hover {
 			text-decoration: none;
-			color: $redMarv;
+			opacity: 0.95;
+		}
+
+		//  ----------------- 576px -----------------
+
+		@media (min-width: 576px) {
+			font-size: 1.8rem;
+		}
+
+		//  ----------------- 1024 px -----------------
+
+		@media (min-width: 1024px) {
+			font-size: 2rem;
 		}
 	}
 
@@ -47,4 +58,9 @@ header {
 		border: 1px solid $yellowMarv;
 		height: 30px;
 	}
+}
+
+#header-logout {
+	color: $redMarv;
+	text-decoration: none;
 }

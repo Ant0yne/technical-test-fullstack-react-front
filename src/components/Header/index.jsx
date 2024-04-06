@@ -69,7 +69,9 @@ const Header = ({
 									<aside></aside>
 								</>
 							)}
-							<button onClick={handleLogOut}>Log out</button>
+							<button onClick={handleLogOut} id="header-logout">
+								Log out
+							</button>
 						</div>
 					) : (
 						<div className="header-button">

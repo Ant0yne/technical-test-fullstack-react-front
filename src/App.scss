@@ -26,7 +26,8 @@ body {
 }
 
 button {
-	font-family: "Roboto", sans-serif;
+	font-family: "Roboto Condensed", sans-serif;
+	font-weight: bold;
 	font-size: 1.6rem;
 	background: none;
 	border: none;
@@ -48,10 +49,6 @@ a {
 
 span {
 	font-weight: bold;
-}
-
-.rc-pagination-item-active a {
-	color: rgb(255, 0, 0);
 }
 
 //  ----------------- 1400 px -----------------
