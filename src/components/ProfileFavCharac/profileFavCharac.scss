@@ -14,3 +14,43 @@
 	@include grid($size: 0.5);
 	@extend %profileFav;
 }
+
+//  ----------------- 576px -----------------
+
+@media (min-width: 576px) {
+	.profile-fav-charac {
+		@include grid($number: 2, $size: 0.5);
+	}
+}
+
+//  ----------------- 768 px -----------------
+
+@media (min-width: 768px) {
+	.profile-fav-charac {
+		@include grid($number: 3, $size: 0.5);
+	}
+}
+
+//  ----------------- 992 px -----------------
+
+@media (min-width: 992px) {
+	.profile-fav-charac {
+		@include grid($number: 4, $size: 0.5);
+	}
+}
+
+//  ----------------- 1200 px -----------------
+
+@media (min-width: 1200px) {
+	.profile-fav-charac {
+		@include grid($number: 5, $size: 0.5);
+	}
+}
+
+//  ----------------- 1400 px -----------------
+
+@media (min-width: 1400px) {
+	.profile-fav-charac {
+		@include grid($number: 6, $size: 0.5);
+	}
+}
