@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
 @import "./scss/variables";
 @import "./scss/placeholders";
+@import "./scss/mixins";
 
 * {
 	box-sizing: border-box;
@@ -85,6 +86,15 @@ a {
 
 span {
 	font-weight: bold;
+}
+
+#not-found {
+	height: 100vh;
+	@include displayFlex;
+
+	h2 {
+		font-size: 3rem;
+	}
 }
 
 //  ----------------- 1400 px -----------------

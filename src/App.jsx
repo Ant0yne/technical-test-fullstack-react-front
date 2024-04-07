@@ -192,6 +192,8 @@ function App() {
 								setToken={setToken}
 								isModalLog={isModalLog}
 								setIsModalLog={setIsModalLog}
+								redirect={redirect}
+								setRedirect={setRedirect}
 							/>
 						}
 					/>
