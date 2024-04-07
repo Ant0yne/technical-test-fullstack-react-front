@@ -63,7 +63,12 @@ const ComicDetail = ({
 						import.meta.env.VITE_BACK + "/user/fav",
 						{
 							favComics: temp,
-							token: token,
+						},
+						{
+							headers: {
+								Authorization: "Bearer " + token,
+								"Content-Type": "application/json",
+							},
 						}
 					);
 					setFavComics(temp);
@@ -87,7 +92,12 @@ const ComicDetail = ({
 						import.meta.env.VITE_BACK + "/user/fav",
 						{
 							favComics: temp,
-							token: token,
+						},
+						{
+							headers: {
+								Authorization: "Bearer " + token,
+								"Content-Type": "application/json",
+							},
 						}
 					);
 

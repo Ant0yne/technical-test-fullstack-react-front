@@ -55,6 +55,7 @@ const CharacterDetail = ({
 				// Add the characters to the fav list
 				const temp = [...favCharacters];
 				temp.push(data);
+				console.log(temp);
 
 				// Replace the characters fav list for user in DDB
 				//with the new one
@@ -63,7 +64,12 @@ const CharacterDetail = ({
 						import.meta.env.VITE_BACK + "/user/fav",
 						{
 							favCharacters: temp,
-							token: token,
+						},
+						{
+							headers: {
+								Authorization: "Bearer " + token,
+								"Content-Type": "application/json",
+							},
 						}
 					);
 					setFavCharacters(temp);
@@ -87,7 +93,12 @@ const CharacterDetail = ({
 						import.meta.env.VITE_BACK + "/user/fav",
 						{
 							favCharacters: temp,
-							token: token,
+						},
+						{
+							headers: {
+								Authorization: "Bearer " + token,
+								"Content-Type": "application/json",
+							},
 						}
 					);
 					setFavCharacters(temp);

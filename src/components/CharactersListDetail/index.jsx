@@ -38,7 +38,12 @@ const CharactersListDetail = ({
 						import.meta.env.VITE_BACK + "/user/fav",
 						{
 							favCharacters: temp,
-							token: token,
+						},
+						{
+							headers: {
+								Authorization: "Bearer " + token,
+								"Content-Type": "application/json",
+							},
 						}
 					);
 					setFavCharacters(temp);
@@ -62,7 +67,12 @@ const CharactersListDetail = ({
 						import.meta.env.VITE_BACK + "/user/fav",
 						{
 							favCharacters: temp,
-							token: token,
+						},
+						{
+							headers: {
+								Authorization: "Bearer " + token,
+								"Content-Type": "application/json",
+							},
 						}
 					);
 					setFavCharacters(temp);
