@@ -52,7 +52,11 @@ const ProfileFavCharac = ({ token, favCharacters, setFavCharacters }) => {
 									}
 									alt={fav.name}
 								/>
-								<p>{fav.name}</p>
+								<p>
+									{fav.name.length > 20
+										? fav.name.slice(0, 19) + "..."
+										: fav.name}
+								</p>
 							</Link>
 							<button onClick={() => handleFav(fav._id)}>
 								Remove from Favorite

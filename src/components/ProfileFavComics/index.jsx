@@ -53,7 +53,11 @@ const ProfileFavComics = ({ token, favComics, setFavComics }) => {
 									alt={fav.title}
 								/>
 
-								<p>{fav.title}</p>
+								<p>
+									{fav.title.length > 25
+										? fav.title.slice(0, 22) + "..."
+										: fav.title}
+								</p>
 							</Link>
 							<button onClick={() => handleFav(fav._id)}>
 								Remove from Favorite
