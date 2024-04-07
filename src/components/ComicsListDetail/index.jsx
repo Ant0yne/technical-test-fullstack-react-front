@@ -88,7 +88,7 @@ const ComicsListDetail = ({
 		<div className="comic-list-detail">
 			<Link to={link} state={{ url: url, characterId: characterId }}>
 				<img
-					src={thumbnail.path + "/portrait_incredible." + thumbnail.extension}
+					src={thumbnail.path + "/portrait_uncanny." + thumbnail.extension}
 					alt={title}
 				/>
 				<p>{title.length > 25 ? title.slice(0, 22) + "..." : title}</p>
