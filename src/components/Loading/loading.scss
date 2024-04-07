@@ -1,0 +1,84 @@
+@import "../../scss/variables";
+@import "../../scss/placeholders";
+@import "../../scss/mixins";
+
+#loading {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#loading {
+	h2 {
+		animation: load 4s linear 0ms infinite normal none;
+	}
+}
+
+#dot-1 {
+	animation: dot-1 4s linear 0ms infinite normal none;
+}
+
+#dot-2 {
+	animation: dot-2 4s linear 0ms infinite normal none;
+}
+
+#dot-3 {
+	animation: dot-3 4s linear 0ms infinite normal none;
+}
+
+@keyframes load {
+	0% {
+		color: $yellowMarv;
+	}
+	50% {
+		color: $lightYellowMarv;
+	}
+	100% {
+		color: $yellowMarv;
+	}
+}
+
+@keyframes dot-1 {
+	0% {
+		opacity: 1;
+	}
+	25% {
+		opacity: 0;
+	}
+	75% {
+		opacity: 0;
+	}
+}
+
+@keyframes dot-2 {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes dot-3 {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	75% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
