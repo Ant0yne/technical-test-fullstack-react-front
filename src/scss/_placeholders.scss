@@ -157,6 +157,9 @@
 	background-color: $white;
 	padding: 10px;
 	gap: $sml-px;
+	border-top: 2px solid $black;
+	border-right: 2px solid $black;
+	border-left: 2px solid $black;
 }
 
 %listDetail {
@@ -254,7 +257,6 @@
 		background-color: $white;
 		padding: 10px;
 		border: 2px solid $black;
-		margin-bottom: 15px;
 	}
 }
 

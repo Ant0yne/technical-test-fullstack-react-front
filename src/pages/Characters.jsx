@@ -24,12 +24,14 @@ const Characters = ({
 				setRedirect={setRedirect}
 			/>
 			<main>
-				<CharactersList
-					token={token}
-					favCharacters={favCharacters}
-					setFavCharacters={setFavCharacters}
-					setIsModalLog={setIsModalLog}
-				/>
+				<div className="container">
+					<CharactersList
+						token={token}
+						favCharacters={favCharacters}
+						setFavCharacters={setFavCharacters}
+						setIsModalLog={setIsModalLog}
+					/>
+				</div>
 			</main>
 			<Footer />
 		</>
