@@ -38,7 +38,7 @@ const ProfileFavComics = ({ token, favComics, setFavComics }) => {
 					const link = "/comic/" + fav._id;
 					return (
 						<div key={fav._id} className="profile-fav-comic">
-							<Link to={link}>
+							<Link to={link} state={{ url: "/profile", characterId: null }}>
 								<img
 									src={
 										fav.thumbnail.path +
