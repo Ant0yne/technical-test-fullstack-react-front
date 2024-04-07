@@ -1,4 +1,12 @@
+@import "../../scss/variables";
+@import "../../scss/placeholders";
+@import "../../scss/mixins";
+
 #profile-info {
+	@include displayFlex($direction: column);
+	gap: 10px;
+	margin: 20px;
+
 	img {
 		height: 150px;
 		width: 150px;

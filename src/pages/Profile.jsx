@@ -44,17 +44,19 @@ const Profile = ({
 				onProfilePage={onProfilePage}
 			/>
 			<main>
-				<ProfileInfo {...user} />
-				<ProfileFavComics
-					token={token}
-					favComics={favComics}
-					setFavComics={setFavComics}
-				/>
-				<ProfileFavCharac
-					token={token}
-					favCharacters={favCharacters}
-					setFavCharacters={setFavCharacters}
-				/>
+				<div className="container">
+					<ProfileInfo {...user} />
+					<ProfileFavComics
+						token={token}
+						favComics={favComics}
+						setFavComics={setFavComics}
+					/>
+					<ProfileFavCharac
+						token={token}
+						favCharacters={favCharacters}
+						setFavCharacters={setFavCharacters}
+					/>
+				</div>
 			</main>
 			<Footer />
 		</>

@@ -5,6 +5,6 @@
 	justify-content: $justify;
 }
 
-@mixin grid($number: 1) {
-	width: calc((100% - ($sml-px * $number)) / ($number + 1));
+@mixin grid($number: 1, $size: 1) {
+	width: calc((100% - ($sml-px * $number)) / ($number + $size));
 }

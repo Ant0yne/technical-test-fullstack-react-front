@@ -31,31 +31,32 @@ const ProfileFavComics = ({ token, favComics, setFavComics }) => {
 
 	return (
 		<section id="profile-fav-comics">
-			<h3>Your favorite comics</h3>
-			{favComics.map((fav) => {
-				// The path if click on comic with the comic id
-				const link = "/comic/" + fav._id;
-				return (
-					<div key={fav._id}>
-						<Link to={link}>
-							<img
-								src={
-									fav.thumbnail.path +
-									"/portrait_small." +
-									fav.thumbnail.extension
-								}
-								alt={fav.title}
-							/>
-							{/* <p>{_id}</p>
-				<p>{title}</p>
-			<p>{description}</p> */}
-						</Link>
-						<button onClick={() => handleFav(fav._id)}>
-							Remove from Favorite
-						</button>
-					</div>
-				);
-			})}
+			<h3>Your favorite comics :</h3>
+			<nav>
+				{favComics.map((fav) => {
+					// The path if click on comic with the comic id
+					const link = "/comic/" + fav._id;
+					return (
+						<div key={fav._id} className="profile-fav-comic">
+							<Link to={link}>
+								<img
+									src={
+										fav.thumbnail.path +
+										"/portrait_uncanny." +
+										fav.thumbnail.extension
+									}
+									alt={fav.title}
+								/>
+
+								<p>{fav.title}</p>
+							</Link>
+							<button onClick={() => handleFav(fav._id)}>
+								Remove from Favorite
+							</button>
+						</div>
+					);
+				})}
+			</nav>
 		</section>
 	);
 };

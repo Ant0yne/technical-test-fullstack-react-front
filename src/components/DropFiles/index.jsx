@@ -18,7 +18,7 @@ const DropFiles = ({ file, setFile }) => {
 				<input {...getInputProps()} />
 				{/* Display a different message when some files are drag 'n' drop above the div */}
 				{isDragActive ? (
-					<p>Déposer ici</p>
+					<p>Vous pouvez déposer votre image ici !</p>
 				) : (
 					<p>
 						Faites glisser votre photo de profil ici (ou cliquez dans le cadre)

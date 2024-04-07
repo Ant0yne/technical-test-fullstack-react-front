@@ -1,0 +1,16 @@
+@import "../../scss/variables";
+@import "../../scss/placeholders";
+@import "../../scss/mixins";
+
+#profile-fav-comics {
+	@extend %profileFavs;
+
+	nav {
+		@include displayFlex($justify: start);
+	}
+}
+
+.profile-fav-comic {
+	@include grid($size: 0.5);
+	@extend %profileFav;
+}

@@ -230,3 +230,39 @@
 		width: 576px;
 	}
 }
+
+// PROFILE -------------------------------------------------------
+
+%profileFavs {
+	padding: 0 10px;
+	text-align: center;
+
+	h3 {
+		color: $yellowMarv;
+		margin: 20px 0;
+	}
+
+	nav {
+		gap: $sml-px;
+		overflow: hidden;
+		overflow-x: scroll;
+	}
+}
+
+%profileFav {
+	flex-shrink: 0;
+
+	img {
+		width: 100%;
+	}
+
+	button {
+		background-color: $yellowMarv;
+		border-radius: 5px;
+		color: $black;
+		font-weight: bold;
+		font-size: 1.8rem;
+		padding: 8px 10px;
+		margin: 20px 0;
+	}
+}
