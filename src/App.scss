@@ -11,15 +11,20 @@ html {
 	font-size: 62.5%;
 	scrollbar-color: $yellowMarv #ffffff00;
 
-	// -ms-overflow-style: none;
-	// scrollbar-width: none;
-
 	&::-webkit-scrollbar {
 		background-color: #ffffff00;
 	}
 
 	&::-webkit-scrollbar-thumb {
 		background-color: $yellowMarv;
+	}
+
+	&::-moz-scrollbar-button {
+		display: none;
+	}
+
+	&::-webkit-scrollbar-button {
+		display: none;
 	}
 }
 

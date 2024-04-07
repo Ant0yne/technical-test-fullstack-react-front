@@ -237,15 +237,24 @@
 	padding: 0 10px;
 	text-align: center;
 
+	p {
+		color: $black;
+	}
+
 	h3 {
 		color: $yellowMarv;
 		margin: 20px 0;
+		text-align: left;
 	}
 
 	nav {
 		gap: $sml-px;
 		overflow: hidden;
 		overflow-x: scroll;
+		background-color: $white;
+		padding: 10px;
+		border: 2px solid $black;
+		margin-bottom: 15px;
 	}
 }
 
@@ -254,6 +263,7 @@
 
 	img {
 		width: 100%;
+		border: 2px solid $black;
 	}
 
 	button {
@@ -263,6 +273,6 @@
 		font-weight: bold;
 		font-size: 1.8rem;
 		padding: 8px 10px;
-		margin: 20px 0;
+		margin: 20px 0 5px 0;
 	}
 }
