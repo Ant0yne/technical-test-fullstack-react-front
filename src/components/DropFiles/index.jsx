@@ -4,8 +4,9 @@ import { useEffect } from "react";
 import "./dropFiles.scss";
 
 const DropFiles = ({ file, setFile }) => {
-	const { acceptedFiles, getRootProps, getInputProps, isDragActive } =
-		useDropzone({ maxFiles: 1 });
+	const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
+		maxFiles: 1,
+	});
 
 	// Update the state with the files with what is added to the component
 	useEffect(() => {
@@ -16,14 +17,9 @@ const DropFiles = ({ file, setFile }) => {
 		<>
 			<div {...getRootProps({ className: "dropzone" })}>
 				<input {...getInputProps()} />
-				{/* Display a different message when some files are drag 'n' drop above the div */}
-				{isDragActive ? (
-					<p>Vous pouvez déposer votre image ici !</p>
-				) : (
-					<p>
-						Faites glisser votre photo de profil ici (ou cliquez dans le cadre)
-					</p>
-				)}
+				<p>
+					Drag and drop your avatar picture here (or click here to upload it)
+				</p>
 			</div>
 			<aside>
 				{file && (
